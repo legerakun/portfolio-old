@@ -5,7 +5,7 @@ export function Preloader() {
 	preloader.style.opacity = 1.0;
 
 	const img = addElement("img", preloader);
-	img.src = "/src/assets/skills/skill-javascript.svg";
+	img.src = "./src/assets/skills/skill-javascript.svg";
 	img.className = "preloader-img";
 	img.style.opacity = "0.0";
 

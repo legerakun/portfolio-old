@@ -13,7 +13,7 @@ export function Daynight() {
 	containerFlex.style.flexDirection = "row";
 	containerFlex.style.flexWrap = "wrap";
 
-	const img1 = addImg("hud-1", "/src/assets/projects/daynight/1_lowResolution.jpg", containerFlex);
+	const img1 = addImg("hud-1", "./src/assets/projects/daynight/1_lowResolution.jpg", containerFlex);
 
 	const font = addElement("font", container);
 	font.style.marginBottom = "40px";

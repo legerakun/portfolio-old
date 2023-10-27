@@ -36,13 +36,13 @@ function addTheme(container) {
 	const img = addElement("img", container)
 	img.className = "theme";
 	img.addEventListener("click", function() {
-		localStorage.getItem("theme") == "On" ? img.src = "/src/assets/theme-on.svg" : img.src = "/src/assets/theme-off.svg";
+		localStorage.getItem("theme") == "On" ? img.src = "./src/assets/theme-on.svg" : img.src = "./src/assets/theme-off.svg";
 		localStorage.getItem("theme") == "On" ? localStorage.setItem("theme", "Off") : localStorage.setItem("theme", "On");
 		setTheme();
 		paintFooter();
 	}, false);
 
-	localStorage.getItem("theme") == "On" ? img.src = "/src/assets/theme-off.svg" : img.src = "/src/assets/theme-on.svg";
+	localStorage.getItem("theme") == "On" ? img.src = "./src/assets/theme-off.svg" : img.src = "./src/assets/theme-on.svg";
 }
 
 function addItem(alt, src) {
@@ -157,7 +157,7 @@ function setTheme() {
 
 		if (history.state.page == 1) {
 			const landing = document.querySelector(".landing");
-			landing.src = "/src/assets/landing-on.svg";
+			landing.src = "./src/assets/landing-on.svg";
 		}
 	} else {
 		document.documentElement.style.setProperty("--main-color", "rgb(240, 220, 80)"); 
@@ -169,7 +169,7 @@ function setTheme() {
 
 		if (history.state.page == 1) {
 			const landing = document.querySelector(".landing");
-			landing.src = "/src/assets/landing-off.svg";
+			landing.src = "./src/assets/landing-off.svg";
 		}
 	}
 }

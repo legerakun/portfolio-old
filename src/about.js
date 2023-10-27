@@ -39,22 +39,22 @@ export function About() {
 	containerFlex.style.flexDirection = "row";
 	containerFlex.style.flexWrap = "wrap";
 
-	addItem("skill-cpp", "/src/assets/skills/skill-cpp.svg");
-	addItem("skill-lua", "/src/assets/skills/skill-lua.svg");
-	addItem("skill-javascript", "/src/assets/skills/skill-javascript.svg");
-	addItem("skill-nodejs", "/src/assets/skills/skill-nodejs.svg");
-	addItem("skill-reactjs", "/src/assets/skills/skill-reactjs.svg");
-	addItem("skill-python", "/src/assets/skills/skill-python.svg");
-	addItem("skill-windows", "/src/assets/skills/skill-windows.svg");
-	addItem("skill-office", "/src/assets/skills/skill-office.svg");
-	addItem("skill-visualstudio", "/src/assets/skills/skill-visualstudio.svg");
-	addItem("skill-photoshop", "/src/assets/skills/skill-photoshop.svg");
-	addItem("skill-arch", "/src/assets/skills/skill-arch.svg");
-	addItem("skill-bash", "/src/assets/skills/skill-bash.svg");
-	addItem("skill-git", "/src/assets/skills/skill-git.svg");
-	addItem("skill-docker", "/src/assets/skills/skill-docker.svg");
-	addItem("skill-nginx", "/src/assets/skills/skill-nginx.svg");
-	addItem("skill-opencv", "/src/assets/skills/skill-opencv.svg");
+	addItem("skill-cpp", "./src/assets/skills/skill-cpp.svg");
+	addItem("skill-lua", "./src/assets/skills/skill-lua.svg");
+	addItem("skill-javascript", "./src/assets/skills/skill-javascript.svg");
+	addItem("skill-nodejs", "./src/assets/skills/skill-nodejs.svg");
+	addItem("skill-reactjs", "./src/assets/skills/skill-reactjs.svg");
+	addItem("skill-python", "./src/assets/skills/skill-python.svg");
+	addItem("skill-windows", "./src/assets/skills/skill-windows.svg");
+	addItem("skill-office", "./src/assets/skills/skill-office.svg");
+	addItem("skill-visualstudio", "./src/assets/skills/skill-visualstudio.svg");
+	addItem("skill-photoshop", "./src/assets/skills/skill-photoshop.svg");
+	addItem("skill-arch", "./src/assets/skills/skill-arch.svg");
+	addItem("skill-bash", "./src/assets/skills/skill-bash.svg");
+	addItem("skill-git", "./src/assets/skills/skill-git.svg");
+	addItem("skill-docker", "./src/assets/skills/skill-docker.svg");
+	addItem("skill-nginx", "./src/assets/skills/skill-nginx.svg");
+	addItem("skill-opencv", "./src/assets/skills/skill-opencv.svg");
 
 	const containerMarginBottom = addElement("container-margin", container);
 	containerMarginBottom.style.minHeight = "140px";

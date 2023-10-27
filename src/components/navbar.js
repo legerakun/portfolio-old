@@ -31,7 +31,7 @@ export function Navbar() {
 
 	const logo = addElement("img", navbar);
 	logo.className = "logo";
-	logo.src = "src/assets/skills/skill-javascript.svg";
+	logo.src = "./src/assets/skills/skill-javascript.svg";
 	logo.addEventListener("click", function() {
 		if (history.state.page != 1) {
 			history.pushState({page: 1}, "");

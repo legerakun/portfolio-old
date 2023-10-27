@@ -17,21 +17,21 @@ export function Footer() {
 
 	const linkGithub = addElement("img", footerCenter);
 	linkGithub.className = "footer-item";
-	linkGithub.src = "/src/assets/logo-github.svg";
+	linkGithub.src = "./src/assets/logo-github.svg";
 	linkGithub.addEventListener("click", function() {
 		window.open("https://github.com/legerakun", "_blank")
 	}, false);
 
 	const linkDiscord = addElement("img", footerCenter);
 	linkDiscord.className = "footer-item";
-	linkDiscord.src = "/src/assets/logo-discord.svg";
+	linkDiscord.src = "./src/assets/logo-discord.svg";
 	linkDiscord.addEventListener("click", function() {
 		window.open("https://discord.com/users/153491549995401216", "_blank")
 	}, false);
 
 	const linkSteam = addElement("img", footerCenter);
 	linkSteam.className = "footer-item";
-	linkSteam.src = "/src/assets/logo-steam.svg";
+	linkSteam.src = "./src/assets/logo-steam.svg";
 	linkSteam.addEventListener("click", function() {
 		window.open("https://steamcommunity.com/id/legera_kun/", "_blank")
 	}, false);

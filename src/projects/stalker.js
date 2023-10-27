@@ -16,12 +16,12 @@ export function Stalker() {
 	containerFlex.style.flexDirection = "row";
 	containerFlex.style.flexWrap = "wrap";
 
-	const img1 = addImg("hud-1", "/src/assets/projects/stalker/6_lowResolution.jpg", containerFlex);
-	const img2 = addImg("hud-2", "/src/assets/projects/stalker/7_lowResolution.jpg", containerFlex);
-	const img3 = addImg("hud-3", "/src/assets/projects/stalker/8_lowResolution.jpg", containerFlex);
-	const img4 = addImg("hud-4", "/src/assets/projects/stalker/9_lowResolution.jpg", containerFlex);
-	const img5 = addImg("hud-5", "/src/assets/projects/stalker/10_lowResolution.jpg", containerFlex);
-	const img6 = addImg("hud-6", "/src/assets/projects/stalker/11_lowResolution.jpg", containerFlex);
+	const img1 = addImg("hud-1", "./src/assets/projects/stalker/6_lowResolution.jpg", containerFlex);
+	const img2 = addImg("hud-2", "./src/assets/projects/stalker/7_lowResolution.jpg", containerFlex);
+	const img3 = addImg("hud-3", "./src/assets/projects/stalker/8_lowResolution.jpg", containerFlex);
+	const img4 = addImg("hud-4", "./src/assets/projects/stalker/9_lowResolution.jpg", containerFlex);
+	const img5 = addImg("hud-5", "./src/assets/projects/stalker/10_lowResolution.jpg", containerFlex);
+	const img6 = addImg("hud-6", "./src/assets/projects/stalker/11_lowResolution.jpg", containerFlex);
 
 	const center = addElement("font-center", container);
 	center.innerHTML = "Info";
@@ -73,9 +73,9 @@ export function Stalker() {
 	containerFlex1.style.flexDirection = "row";
 	containerFlex1.style.flexWrap = "wrap";
 
-	const img7 = addImg("hud-7", "/src/assets/projects/stalker/1_lowResolution.jpg", containerFlex1);
-	const img8 = addImg("hud-8", "/src/assets/projects/stalker/2_lowResolution.jpg", containerFlex1);
-	const img9 = addImg("hud-9", "/src/assets/projects/stalker/3_lowResolution.jpg", containerFlex1);
+	const img7 = addImg("hud-7", "./src/assets/projects/stalker/1_lowResolution.jpg", containerFlex1);
+	const img8 = addImg("hud-8", "./src/assets/projects/stalker/2_lowResolution.jpg", containerFlex1);
+	const img9 = addImg("hud-9", "./src/assets/projects/stalker/3_lowResolution.jpg", containerFlex1);
 
 	const center3 = addElement("font-center", container);
 	addText(center3, "Minimap");
@@ -134,8 +134,8 @@ export function Stalker() {
 	containerFlex2.style.flexDirection = "row";
 	containerFlex2.style.flexWrap = "wrap";
 
-	const img10 = addImg("hud-10", "/src/assets/projects/stalker/4_lowResolution.jpg", containerFlex2);
-	const img11 = addImg("hud-11", "/src/assets/projects/stalker/5_lowResolution.jpg", containerFlex2);
+	const img10 = addImg("hud-10", "./src/assets/projects/stalker/4_lowResolution.jpg", containerFlex2);
+	const img11 = addImg("hud-11", "./src/assets/projects/stalker/5_lowResolution.jpg", containerFlex2);
 
 	const font6 = addElement("font", container);
 	addText(font6,
