@@ -39,9 +39,7 @@ export function Navbar() {
 		}
 	}, false);
 
-	const navbarMargin = addElement("div", navbar);
-	navbarMargin.style.flex = "1 1 auto";
-	logo.after(navbarMargin);
+	const navbarMargin = addElement("navbar-margin", navbar);
 
 	const home = addElement("navbar-item", navbar);
 	home.en = "Home";

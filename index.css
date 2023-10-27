@@ -1,5 +1,5 @@
 body {
-	margin: 0px;
+	margin: 0;
 	background: var(--bg-color);
 }
 
@@ -116,6 +116,10 @@ navbar {
 	width: 70%;
 	height: 80px;
 	background: var(--navbar-color);
+}
+
+navbar-margin {
+	flex: 1 1 auto;
 }
 
 navbar-item {
