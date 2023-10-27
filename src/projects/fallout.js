@@ -17,8 +17,8 @@ export function Fallout() {
 	containerFlex.style.flexWrap = "wrap";
 
 	const img1 = addImg("hud-1", "./src/assets/projects/fallout/2_lowResolution.jpg", containerFlex);
-	const img2 = addImg("hud-2", "./src/assets/projects/stalker/3_lowResolution.jpg", containerFlex);
-	const img3 = addImg("hud-3", "./src/assets/projects/stalker/4_lowResolution.jpg", containerFlex);
+	const img2 = addImg("hud-2", "./src/assets/projects/fallout/3_lowResolution.jpg", containerFlex);
+	const img3 = addImg("hud-3", "./src/assets/projects/fallout/4_lowResolution.jpg", containerFlex);
 
 	const header2 = addElement("font-header-1", container);
 	header2.innerHTML = "HUD";
