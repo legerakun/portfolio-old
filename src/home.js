@@ -24,22 +24,16 @@ export function Home() {
 	addText(home, 
 		`This is a single-page website created from scratch. 
 		Here I'm testing some opportunities in HTML, CSS, and JavaScript.
-		Feel free to use the <a href="index.html" class="font-link"> source code </a>.`,
+		Feel free to use the <a href="https://github.com/legerakun/portfolio-js" target="_blank" class="font-link">source code</a>.`,
 		`Это одностраничный сайт созданный с нуля.
 		Здесь я тестирую различные возможности HTML, CSS и JavaScript.
-		Здесь вы можете найти <a href="index.html" class="font-link"> исходный код </a>.`
+		Здесь вы можете найти <a href="https://github.com/legerakun/portfolio-js" target="_blank" class="font-link">исходный код</a>.`
 	);
 
 	const landing = addElement("img", containerRight);
 	landing.className = "landing";
 
 	applyProperties();
-
-	const fontLink = document.querySelector(".font-link");
-	fontLink.addEventListener("click", function() {
-		history.pushState({page: 2}, "");
-		About();
-	}, false);
 
 	const containerMarginBottom = addElement("container-margin", container);
 	containerMarginBottom.style.minHeight = "140px";
