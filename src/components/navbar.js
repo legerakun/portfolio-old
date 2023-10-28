@@ -35,10 +35,10 @@ export function Navbar() {
 	logo.className = "logo";
 	logo.src = "./src/assets/skills/skill-javascript.svg";
 	logo.addEventListener("click", function() {
-		if (history.state.page != 0) {
-			history.pushState({page: 0}, "");
-			changeContainer(0);
-		}
+		if (history.state.page == 0) return; 
+		
+		history.pushState({page: 0}, "");
+		changeContainer(0);
 	}, false);
 
 	const navbarMargin = addElement("navbar-margin", navbar);
@@ -47,30 +47,30 @@ export function Navbar() {
 	home.en = "Home";
 	home.ru = "Главная";
 	home.addEventListener("click", function() {
-		if (history.state.page != 0) {
-			history.pushState({page: 0}, "");
-			changeContainer(0);
-		}
+		if (history.state.page == 0) return; 
+
+		history.pushState({page: 0}, "");
+		changeContainer(0);
 	}, false);
 
 	const about = addElement("navbar-item", navbar);
 	about.en = "About";
 	about.ru = "Автор";
 	about.addEventListener("click", function() {
-		if (history.state.page != 1) {
-			history.pushState({page: 1}, "");
-			changeContainer(1);
-		}
+		if (history.state.page == 1) return; 
+
+		history.pushState({page: 1}, "");
+		changeContainer(1);
 	}, false);
 
 	const projects = addElement("navbar-item", navbar);
 	projects.en = "Projects";
 	projects.ru = "Проекты";
 	projects.addEventListener("click", function() {
-		if (history.state.page != 2) {
-			history.pushState({page: 2}, "");
-			changeContainer(2);
-		}
+		if (history.state.page == 2) return; 
+
+		history.pushState({page: 2}, "");
+		changeContainer(2);
 	}, false);
 }
 
