@@ -31,7 +31,7 @@ function onLoad() {
 function onScroll() {
 	const line = document.querySelector("hr");
 
-	window.scrollY != 0 ? line.style.display = "block" : line.style.display = "none";
+	line.style.display = window.scrollY != 0 ? "block" : "none";
 }
 
 function onPopstate() {

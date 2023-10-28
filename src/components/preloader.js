@@ -2,7 +2,7 @@ import { addElement } from "./utils.js";
 
 export function Preloader() {
 	const preloader = addElement("preloader", document.body);
-	preloader.style.opacity = 1.0;
+	preloader.style.opacity = "1.0";
 
 	const img = addElement("img", preloader);
 	img.src = "./src/assets/skills/skill-javascript.svg";
@@ -11,8 +11,12 @@ export function Preloader() {
 
 	const opacityInterval = setInterval(() => {
 		const img = document.querySelector(".preloader-img");
-		
-		Number(img.style.opacity) < 1.0 ? img.style.opacity = Number(img.style.opacity) + 0.01 : clearInterval(opacityInterval);
+
+		if (Number(img.style.opacity) < 1.0) {
+			img.style.opacity = Number(img.style.opacity) + 0.01;
+		} else {
+			clearInterval(opacityInterval);
+		}
 	}, 10);
 
 	setTimeout(() => {
