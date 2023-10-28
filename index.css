@@ -360,12 +360,24 @@ language:hover::after {
 		height: calc(100% - 90px);
 	}
 
+	container-flex-1:hover {
+		box-shadow: none;
+	}
+
 	navbar {
 		height: 120px;
 	}
 
 	navbar-item {
 		font-size: 50px;
+	}
+
+	navbar-item::after {
+		display: none;
+	}
+
+	navbar-item:hover::after {
+		width: 0;
 	}
 
 	font-header {
@@ -400,6 +412,26 @@ language:hover::after {
 		font-size: 40px;
 	}
 
+	language::after {
+		display: none;
+	}
+
+	language:hover::after {
+		width: 0;
+	}
+
+	.flex-item:hover {
+		box-shadow: none;
+	}
+
+	.flex-item-2:hover {
+		box-shadow: none;
+	}
+
+	.footer-item:hover {
+		box-shadow: none;
+	}
+
 	.landing {
 		max-width: 650px;
 	}
@@ -414,5 +446,9 @@ language:hover::after {
 
 	.theme {
 		max-width: 80px;
+	}
+
+	.theme:hover {
+		box-shadow: none;
 	}
 }
