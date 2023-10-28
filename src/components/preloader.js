@@ -13,7 +13,7 @@ export function Preloader() {
 		const img = document.querySelector(".preloader-img");
 		
 		Number(img.style.opacity) < 1.0 ? img.style.opacity = Number(img.style.opacity) + 0.01 : clearInterval(opacityInterval);
-	}, "10");
+	}, 10);
 
 	setTimeout(() => {
 		const opacityInterval1 = setInterval(() => {
@@ -25,7 +25,7 @@ export function Preloader() {
 			} else {
 				preloader.style.opacity = Number(preloader.style.opacity) - 0.01;
 			} 
-		}, "10");
-	}, "1000")
+		}, 10);
+	}, 1000)
 }
 

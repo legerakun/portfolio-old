@@ -97,7 +97,7 @@ function createContainer(marginTop) {
 		const container = document.querySelector("container");
 
 		Number(container.style.opacity) < 1.0 ? container.style.opacity = clamp(Number(container.style.opacity) + 0.03, 0.0, 1.0) : clearInterval(intervalContainer);
-	}, "10")
+	}, 10)
 
 	const navbar = document.querySelector("navbar");
 	navbar.before(container);

@@ -7,11 +7,15 @@ function changeContainer(index) {
 	const intervalContainer = setInterval(() => {
 		const container = document.querySelector("container");
 
-		Number(container.style.opacity) > 0.0 ? container.style.opacity = Number(container.style.opacity) - 0.03 : clearInterval(intervalContainer);
-	}, "10")
+		const containerOpacity = Number(container.style.opacity);
 
+		if (containerOpacity > 0.0) {
+			container.style.opacity = containerOpacity - 0.03;
+		} else {
+			clearInterval(intervalContainer);
 		}
-	}, "300");
+	}, 10)
+
 	setTimeout(() => {
 		const pages = [
 			Home,
@@ -20,6 +24,7 @@ function changeContainer(index) {
 		]
 
 		pages[index]();
+	}, 300);
 }
 
 export function Navbar() {
