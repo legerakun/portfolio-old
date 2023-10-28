@@ -10,19 +10,16 @@ function changeContainer(index) {
 		Number(container.style.opacity) > 0.0 ? container.style.opacity = Number(container.style.opacity) - 0.03 : clearInterval(intervalContainer);
 	}, "10")
 
-	setTimeout(() => {
-		switch(index) {
-			case 1:
-				Home();
-				break;
-			case 2:
-				About();
-				break;
-			case 3:
-				Projects();
-				break;
 		}
 	}, "300");
+	setTimeout(() => {
+		const pages = [
+			Home,
+			About,
+			Projects
+		]
+
+		pages[index]();
 }
 
 export function Navbar() {

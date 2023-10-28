@@ -35,29 +35,17 @@ function onScroll() {
 }
 
 function onPopstate() {
-	switch (history.state.page){
-		case 1:
-			Home();
-			break;
-		case 2:
-			About();
-			break;
-		case 3:
-			Projects();
-			break;
-		case 4:
-			Stalker();
-			break;
-		case 5:
-			Fallout();
-			break;
-		case 6:
-			MW();
-			break;
-		case 7:
-			Daynight();
-			break;
-	}
+	const pages = [
+		Home, 
+		About, 
+		Projects,
+		Stalker, 
+		Fallout, 
+		MW, 
+		Daynight
+	]
+
+	pages[history.state.page]();
 }
 
 window.addEventListener("load", (event) => onLoad());
