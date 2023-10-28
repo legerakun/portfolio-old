@@ -1,7 +1,7 @@
 import { createContainer, addElement, addText, addProject, applyProperties } from "./components/utils.js";
-import { Stalker }  from "./projects/stalker.js";
-import { Fallout }  from "./projects/fallout.js";
-import { MW }       from "./projects/mw.js";
+import { Stalker } from "./projects/stalker.js";
+import { Fallout } from "./projects/fallout.js";
+import { MW } from "./projects/mw.js";
 import { Daynight } from "./projects/daynight.js";
 
 export function Projects() {

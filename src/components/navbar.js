@@ -1,7 +1,7 @@
 import { addElement } from "./utils.js";
-import { Home }       from "../home.js";
-import { About }      from "../about.js";
-import { Projects }   from "../projects.js";
+import { Home } from "../home.js";
+import { About } from "../about.js";
+import { Projects } from "../projects.js";
 
 function changeContainer(index) {
 	const intervalContainer = setInterval(() => {
