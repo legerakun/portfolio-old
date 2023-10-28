@@ -11,7 +11,7 @@ import { Daynight } from "./src/projects/daynight.js";
 
 function onLoad() {
 	if (history.state == null) {
-		history.replaceState({page: 1}, "");
+		history.replaceState({page: 0}, "");
 	}
 
 	if (!localStorage.getItem("language")) {

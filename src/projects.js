@@ -22,7 +22,7 @@ export function Projects() {
 		"S.T.A.L.K.E.R.",
 		`A few Garry's Mod plugins are designed like the "S.T.A.L.K.E.R." game trilogy.`,
 		`Несколько плагинов для Garry's Mod разработанных в стиле трилогии "S.T.A.L.K.E.R.".`,
-		4,
+		3,
 		Stalker
 	);
 
@@ -31,7 +31,7 @@ export function Projects() {
 		"Fallout",
 		`A few Garry's Mod plugins are designed like the "Fallout" game series.`,
 		`Несколько плагинов для Garry's Mod разработанных в стиле серии игр "Fallout".`,
-		5,
+		4,
 		Fallout
 	);
 
@@ -40,7 +40,7 @@ export function Projects() {
 		"COD: Modern Warfare",
 		`Garry's Mod plugin is designed like the "Call of Duty: Modern Warfare" game.`,
 		`Плагин для Garry's Mod разработанный в стиле игры "Call of Duty: Modern Warfare".`,
-		6,
+		5,
 		MW
 	);
 
@@ -49,7 +49,7 @@ export function Projects() {
 		"Day & Night Trader",
 		`A Garry's Mod plugin adds a special trader and some light entities.`,
 		`Плагин для Garry's Mod добавляющий специального торговца и несколько новых источников света.`,
-		7,
+		6,
 		Daynight
 	);
 

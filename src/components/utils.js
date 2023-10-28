@@ -155,7 +155,7 @@ function setTheme() {
 		document.documentElement.style.setProperty("--main-filter", "invert(78%) sepia(59%) saturate(7435%) hue-rotate(0deg) brightness(102%) contrast(105%)");
 		document.documentElement.style.setProperty("--shadow-color", "rgb(100, 100, 100)");
 
-		if (history.state.page == 1) {
+		if (history.state.page == 0) {
 			const landing = document.querySelector(".landing");
 			landing.src = "./src/assets/landing-on.svg";
 		}
@@ -167,7 +167,7 @@ function setTheme() {
 		document.documentElement.style.setProperty("--main-filter", "invert(75%) sepia(54%) saturate(496%) hue-rotate(6deg) brightness(110%) contrast(88%)");
 		document.documentElement.style.setProperty("--shadow-color", "blue");
 
-		if (history.state.page == 1) {
+		if (history.state.page == 0) {
 			const landing = document.querySelector(".landing");
 			landing.src = "./src/assets/landing-off.svg";
 		}
