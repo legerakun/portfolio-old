@@ -3,7 +3,7 @@ import { addLanguage, addTheme, addElement, paintFooter} from "./utils.js";
 export function Footer() {
 	const footer = addElement("footer", document.body);
 
-	const footerLeft = addElement("footer", footer);
+	const footerLeft = addElement("footer-left", footer);
 	footerLeft.style.position = "relative";
 	footerLeft.style.left = "0";
 

@@ -158,6 +158,19 @@ footer {
 	background: var(--bg-color);
 }
 
+footer-left {
+	position: fixed;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	bottom: 0;
+	left: 15%;
+	width: 70%;
+	height: 50px;
+	background: var(--bg-color);
+}
+
 font-footer {
 	position: relative;
 	display: block;
@@ -359,12 +372,24 @@ language:hover::after {
 		font-size: 70px;
 	}
 
+	font-header-1 {
+		font-size: 70px;
+	}
+
+	font-center {
+		font-size: 70px;
+	}
+
 	font {
 		font-size: 60px;
 	}
 
 	footer {
 		height: 90px;
+	}
+
+	footer-left {
+		display: none;
 	}
 
 	font-footer {
@@ -384,6 +409,10 @@ language:hover::after {
 	}
 
 	.footer-item {
+		max-width: 80px;
+	}
+
+	.theme {
 		max-width: 80px;
 	}
 }
