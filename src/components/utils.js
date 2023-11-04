@@ -1,5 +1,16 @@
+import locales from "../data/locales.json" assert { type: "json" };
+
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
+function findKey(json, key){
+	key = key.split(".");
+
+	for (let i = 0; i < key.length; i++) {
+		json = json[key[i]];
+	}
+
+	return json;
+}
 function addElement(element, parent) {
 	const newElement = document.createElement(element);
 
@@ -8,14 +19,11 @@ function addElement(element, parent) {
 	return newElement;
 }
 
-function addText(element, textEn, textRu = "") {
-	if (textRu == "") {
-		element.innerHTML = textEn;
-	} else {
-		element.lang = "en";
-		element.en = textEn;
-		element.ru = textRu;
-	}
+function addTranslation(element, key) {
+	const language = localStorage.getItem("language") == "En" ? locales.en : locales.ru;
+
+	element.innerHTML = findKey(language, key) ?? key;
+	element.key = key;
 }
 
 function addLanguage(container, lang) {
@@ -58,7 +66,7 @@ function addItem(alt, src) {
 	skill.src = src;
 }
 
-function addProject(alt, src, title, en, ru, navpage, func) {
+function addProject(alt, src, title, translationKey, navpage, func) {
 	const container = document.querySelector("container-flex");
 
 	const panel = addElement("container-flex-1", container);
@@ -76,9 +84,7 @@ function addProject(alt, src, title, en, ru, navpage, func) {
 	header.innerHTML = title;
 
 	const font = addElement("container-flex-font", panel);
-	font.lang = "en";
-	font.en = en;
-	font.ru = ru;
+	addTranslation(font, translationKey);
 }
 
 function addImg(alt, src, container) {
@@ -129,24 +135,10 @@ function paintFooter() {
 	ru.style.color = localStorage.getItem("language") == "En" ? fontColor : mainColor;
 }
 
-function applyProperties() {
-	setLanguage();
-
-	setTheme();
-}
-
-function setText(element) {
-	element.innerHTML = localStorage.getItem("language") == "En" ?  element.en : element.ru;
-} 
-
 function setLanguage() {
-	const navbarItems = document.querySelectorAll("navbar-item");
-
-	navbarItems.forEach((element) => setText(element));
-
 	const allElements = Array.from(document.querySelectorAll("*"));
 
-	allElements.filter((element) => element.lang).forEach((element) => setText(element));
+	allElements.filter((element) => element.key).forEach((element) => addTranslation(element, element.key));
 }
 
 function setTheme() {
@@ -177,4 +169,4 @@ function setTheme() {
 	}
 }
 
-export { addElement, addText, addLanguage, addTheme, addItem, addProject, addImg, createContainer, paintFooter, applyProperties };
+export { addElement, addTranslation, addLanguage, addTheme, addItem, addProject, addImg, createContainer, paintFooter, setTheme };

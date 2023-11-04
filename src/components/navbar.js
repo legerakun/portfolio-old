@@ -1,4 +1,4 @@
-import { addElement } from "./utils.js";
+import { addElement, addTranslation } from "./utils.js";
 import { Home } from "../home.js";
 import { About } from "../about.js";
 import { Projects } from "../projects.js";
@@ -44,8 +44,7 @@ export function Navbar() {
 	const navbarMargin = addElement("navbar-margin", navbar);
 
 	const home = addElement("navbar-item", navbar);
-	home.en = "Home";
-	home.ru = "Главная";
+	addTranslation(home, "home.navbar");
 	home.addEventListener("click", function() {
 		if (history.state.page == 0) return; 
 
@@ -54,8 +53,7 @@ export function Navbar() {
 	}, false);
 
 	const about = addElement("navbar-item", navbar);
-	about.en = "About";
-	about.ru = "Автор";
+	addTranslation(about, "about.navbar");
 	about.addEventListener("click", function() {
 		if (history.state.page == 1) return; 
 
@@ -64,8 +62,7 @@ export function Navbar() {
 	}, false);
 
 	const projects = addElement("navbar-item", navbar);
-	projects.en = "Projects";
-	projects.ru = "Проекты";
+	addTranslation(projects, "projects.navbar");
 	projects.addEventListener("click", function() {
 		if (history.state.page == 2) return; 
 

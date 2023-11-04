@@ -1,4 +1,4 @@
-import { createContainer, addElement, addImg, applyProperties } from "../components/utils.js";
+import { createContainer, addElement, addTranslation, addImg } from "../components/utils.js";
 
 export function Fallout() {
 	document.title = "JS | Fallout";
@@ -7,10 +7,10 @@ export function Fallout() {
 
 	const header = addElement("font-header", container);
 	header.style.textAlign = "center";
-	header.innerHTML = "Fallout";
+	addTranslation(header, "Fallout");
 
 	const header1 = addElement("font-header-1", container);
-	header1.innerHTML = "Menu (Helix | Nutscript)";
+	addTranslation(header1, "Menu (Helix | Nutscript)");
 
 	const containerFlex = addElement("container-flex", container);
 	containerFlex.style.flexDirection = "row";
@@ -21,7 +21,7 @@ export function Fallout() {
 	const img3 = addImg("hud-3", "./src/assets/projects/fallout/4_lowResolution.jpg", containerFlex);
 
 	const header2 = addElement("font-header-1", container);
-	header2.innerHTML = "HUD";
+	addTranslation(header2, "HUD");
 
 	const containerFlex1 = addElement("container-flex", container);
 	containerFlex1.style.flexDirection = "row";
@@ -31,6 +31,4 @@ export function Fallout() {
 
 	const containerMarginBottom = addElement("container-margin", container);
 	containerMarginBottom.style.minHeight = "140px";
-
-	applyProperties();
 }

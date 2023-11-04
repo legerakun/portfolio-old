@@ -1,4 +1,4 @@
-import { createContainer, addElement, addText, addImg, applyProperties } from "../components/utils.js";
+import { createContainer, addElement, addTranslation, addImg } from "../components/utils.js";
 
 export function Stalker() {
 	document.title = "JS | STALKER";
@@ -6,11 +6,11 @@ export function Stalker() {
 	const [container, navbar] = createContainer("160px");
 
 	const header = addElement("font-header", container);
-	header.style.textAlign = "center";
 	header.innerHTML = "S.T.A.L.K.E.R.";
+	header.style.textAlign = "center";
 
 	const header1 = addElement("font-header-1", container);
-	header1.innerHTML = "PDA";
+	addTranslation(header1, "PDA");
 
 	const containerFlex = addElement("container-flex", container);
 	containerFlex.style.flexDirection = "row";
@@ -24,50 +24,26 @@ export function Stalker() {
 	const img6 = addImg("hud-6", "./src/assets/projects/stalker/11_lowResolution.jpg", containerFlex);
 
 	const center = addElement("font-center", container);
-	center.innerHTML = "Info";
+	addTranslation(center, "Info");
 
 	const font = addElement("font", container);
-	addText(font, 
-		`Time (Helix | NutScript).<br>
-		Rank and faction relationship system.`,
-		`Время (Helix | NutScript).<br>
-		Система ранга и отношения к фракции.`
-	);
+	addTranslation(font, "stalker.ranks");
 
 	const center1 = addElement("font-center", container);
-	addText(center1,
-		"Tasks Page",
-		"Вкладка задачи"
-	)
+	addTranslation(center1, "stalker.tasks-header");
 
 	const font1 = addElement("font", container);
-	addText(font1, 
-		`It is impossible to ensure compatibility for every map that exists, so background images need to be created by hand for every map. 
-		<a href="https://developer.valvesoftware.com/w/index.php?title=Creating_a_working_mini-map_for_CS:GO&amp;uselang=en" target="_blank" class="font-link">Guide</a>.<br>
-		Displayed items can be changed.`,
-		`Невозможно сделать автоматическую поддержку для всех существующих карт, 
-		поэтому изображение карты необходимо создавать вручную. 
-		<a href="https://developer.valvesoftware.com/wiki/Creating_a_working_mini-map:ru" target="_blank" class="font-link">Инструкция</a>.<br>
-		Можно изменять отображаемые предметы.`
-	)
+	addTranslation(font1, "stalker.tasks-text");
 
 	const center2 = addElement("font-center", container);
-	addText(center2,
-		"Diary & Encyclopedia Pages",
-		"Вкладки Журнал И Справка"
-	)
+	addTranslation(center2, "stalker.diary-header");
 
 	const font2 = addElement("font", container);
 	font2.style.marginBottom = "40px";
-	addText(font2, 
-		`Pages can be grouped by categories.<br>
-		A page can contain text and image.`,
-		`Вкладки могут быть сгруппированы в категории.<br>
-		Вкладки могут содержать текст и изображение.`
-	)
+	addTranslation(font2, "stalker.diary-text");
 
 	const header2 = addElement("font-header-1", container);
-	addText(header2, "HUD");
+	addTranslation(header2, "HUD");
 
 	const containerFlex1 = addElement("container-flex", container);
 	containerFlex1.style.flexDirection = "row";
@@ -78,57 +54,26 @@ export function Stalker() {
 	const img9 = addImg("hud-9", "./src/assets/projects/stalker/3_lowResolution.jpg", containerFlex1);
 
 	const center3 = addElement("font-center", container);
-	addText(center3, "Minimap");
+	addTranslation(center3, "Minimap");
 
 	const font3 = addElement("font", container);
-	addText(font3, 
-		`It is impossible to ensure compatibility for every map that exists, so background images need to be created by hand for every map. 
-		<a href="https://developer.valvesoftware.com/w/index.php?title=Creating_a_working_mini-map_for_CS:GO&amp;uselang=en" target="_blank" class="font-link">Guide</a>.<br>
-		People, NPCs, and vendor counters.<br>
-		Compas.<br>
-		Time (Helix | NutScript).`,
-		`Невозможно сделать автоматическую поддержку для всех существующих карт, 
-		поэтому изображение карты необходимо создавать вручную. 
-		<a href="https://developer.valvesoftware.com/wiki/Creating_a_working_mini-map:ru" target="_blank" class="font-link">Инструкция</a>.<br>
-		Счетчик людей, НПС и торговцев.<br>
-		Компас.<br>
-		Время (Helix | NutScript).`
-	);
+	addTranslation(font3, "stalker.minimap");
 
 	const center4 = addElement("font-center", container);
-	addText(center4,
-		"Ammo",
-		"Аммуниция"
-	);
+	addTranslation(center4, "stalker.ammo-header");
 
 	const font4 = addElement("font", container);
-	addText(font4,
-		`Clip, primary, and secondary ammo counters.<br>
-		Picture of ammo.`,
-		`Счетчик патронов в магазине, основных и дополнительных патронов.<br>
-		Изображение используемого типа патронов.`
-	);
+	addTranslation(font4, "stalker.ammo-text");
 
 	const center5 = addElement("font-center", container);
-	addText(center5,
-		"Hot-Key Binds (Helix | NutScript)",
-		"Горячие Клавиши (Helix | NutScript)"
-	);
+	addTranslation(center5, "stalker.hotkey-header");
 
 	const font5 = addElement("font", container);
 	font5.style.marginBottom = "40px";
-	addText(font5,
-		`Picture for every item. <br>
-		Sound and label on use.`,
-		`Изображение для каждого предмета.<br>
-		Звук и надпись использования.`
-	);
+	addTranslation(font5, "stalker.hotkey-text");
 
 	const header3 = addElement("font-header-1", container);
-	addText(header3,
-		"Inventory",
-		"Инвентарь"
-	);
+	addTranslation(header3, "stalker.inventory-header");
 
 	const containerFlex2 = addElement("container-flex", container);
 	containerFlex2.style.flexDirection = "row";
@@ -138,17 +83,8 @@ export function Stalker() {
 	const img11 = addImg("hud-11", "./src/assets/projects/stalker/5_lowResolution.jpg", containerFlex2);
 
 	const font6 = addElement("font", container);
-	addText(font6,
-		`Separate slots for armor, weapons, and hot-key binds. There's a table of allowed items. Auto-equip when an item is in a slot.<br>
-		Player pictures depend on player armor.<br>
-		Weight system (credits to neon, DrodA).`,
-		`Отдельные слоты для брони, оружия и горячих клавиш. Таблица предметов, которые можно разместить в слот. Автоматическая экипировка предметов размещенных в слоте.<br>
-		Изображение игрока зависит от модели его брони.<br>
-		Система веса снаряжения (авторы neon, DrodA).`
-	);
+	addTranslation(font6, "stalker.inventory-text");
 
 	const containerMarginBottom = addElement("container-margin", container);
 	containerMarginBottom.style.minHeight = "140px";
-
-	applyProperties();
 }

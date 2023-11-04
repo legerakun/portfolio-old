@@ -1,0 +1,82 @@
+{
+	"en": {
+		"home": {
+			"navbar": "Home",
+			"header": "Hi, welcome to my JavaScript portfolio!",
+			"text": "This is a single-page website created from scratch. Here I'm testing some opportunities in HTML, CSS, and JavaScript. Feel free to use the <a href='https://github.com/legerakun/portfolio-js' target='_blank' class='font-link'>source code</a>."
+		},
+		"about": {
+			"navbar": "About",
+			"header": "Let me introduce myself",
+			"text": "Hi, call me Legera. I'm a multidirectional developer.<br> I'm a bachelor of physical sciences in radiophysics.<br> Programming is my favorite hobby. I've been programming for over <span style='color: var(--main-color); display: inline-block'>10 years</span>.<br> At this moment, I'm studying at the university and getting a master's degree.",
+			"skillset": "Skillset"
+		},
+		"projects": {
+			"navbar": "Projects",
+			"stalker": "A few Garry's Mod plugins are designed like the \"S.T.A.L.K.E.R.\" game trilogy.",
+			"fallout": "A few Garry's Mod plugins are designed like the \"Fallout\" game series.",
+			"mw": "Garry's Mod plugin is designed like the \"Call of Duty: Modern Warfare\" game.",
+			"daynight": "A Garry's Mod plugin adds a special trader and some light entities."
+		},
+		"stalker": {
+			"ranks": "Time (Helix | NutScript).<br> Rank and faction relationship system.",
+			"tasks-header": "Tasks Page",
+			"tasks-text": "It is impossible to ensure compatibility for every map that exists, so background images need to be created by hand for every map. <a href='https://developer.valvesoftware.com/w/index.php?title=Creating_a_working_mini-map_for_CS:GO&amp;uselang=en' target='_blank' class='font-link'>Guide</a>.<br> Displayed items can be changed.",
+			"diary-header": "Diary & Encyclopedia Pages",
+			"diary-text": "Pages can be grouped by categories.<br> A page can contain text and image.",
+			"minimap": "It is impossible to ensure compatibility for every map that exists, so background images need to be created by hand for every map. <a href='https://developer.valvesoftware.com/w/index.php?title=Creating_a_working_mini-map_for_CS:GO&amp;uselang=en' target='_blank' class='font-link'>Guide</a>.<br> People, NPCs, and vendor counters.<br> Compas.<br> Time (Helix | NutScript).",
+			"ammo-header": "Ammo",
+			"ammo-text": "Clip, primary, and secondary ammo counters.<br> Picture of ammo.",
+			"hotkey-header": "Hot-Key Binds (Helix | NutScript)",
+			"hotkey-text": "Picture for every item. <br> Sound and label on use.",
+			"inventory-header": "Inventory",
+			"inventory-text": "Separate slots for armor, weapons, and hot-key binds. There's a table of allowed items. Auto-equip when an item is in a slot.<br> Player pictures depend on player armor.<br> Weight system (credits to neon, DrodA)."
+		},
+		"mw": {
+			"text": "Objective system. Commands to create and delete objectives. The description of the objective can be changed.<br> Ammo, grenades, and flashbangs counter.<br> Command to create an announcement.<br> Command to create a subtitle.<br> 2D Radar. Can show checkpoints.<br> Crouch and standing indicators."
+		},
+		"daynight": {
+			"text": "Based on <a href='https://steamcommunity.com/sharedfiles/filedetails/?id=1614964558' target='_blank' class='font-link'>Addon</a>.<br> Light entities that turn on only at night and turn off when the day comes.<br> Vendor that appears only at night at random places. disappears when the day comes."
+		}
+	},
+	"ru": {
+		"home": {
+			"navbar": "Главная",
+			"header": "Привет, добро пожаловать в мое JavaScript портфолио!",
+			"text": "Это одностраничный сайт созданный с нуля. Здесь я тестирую различные возможности HTML, CSS и JavaScript. Здесь вы можете найти <a href='https://github.com/legerakun/portfolio-js' target='_blank' class='font-link'>исходный код</a>."
+		},
+		"about": {
+			"navbar": "Автор",
+			"header": "Позвольте представиться",
+			"text": "Привет, меня зовут Legera. Я разносторонний разработчик.<br> У меня степень бакалавра по физике по направлении радиофизика.<br> Мое любимое хобби это программирование. Я программирую на протяжении <span style='color: var(--main-color); display: inline-block'>10 лет</span>.<br> В данный момент я обучаюсь в университете и получаю степень магистра.",
+			"skillset": "Навыки"
+		},
+		"projects": {
+			"navbar": "Проекты",
+			"stalker": "Несколько плагинов для Garry's Mod разработанных в стиле трилогии \"S.T.A.L.K.E.R.\".",
+			"fallout": "Несколько плагинов для Garry's Mod разработанных в стиле серии игр \"Fallout\".",
+			"mw": "Плагин для Garry's Mod разработанный в стиле игры \"Call of Duty: Modern Warfare\".",
+			"daynight": "Плагин для Garry's Mod добавляющий специального торговца и несколько новых источников света."
+		},
+		"stalker": {
+			"ranks": "Время (Helix | NutScript).<br> Система ранга и отношения к фракции.",
+			"tasks-header": "Вкладка задачи",
+			"tasks-text": "Невозможно сделать автоматическую поддержку для всех существующих карт, поэтому изображение карты необходимо создавать вручную. <a href='https://developer.valvesoftware.com/wiki/Creating_a_working_mini-map:ru' target='_blank' class='font-link'>Инструкция</a>.<br> Можно изменять отображаемые предметы.",
+			"diary-header": "Вкладки Журнал И Справка",
+			"diary-text": "Вкладки могут быть сгруппированы в категории.<br> Вкладки могут содержать текст и изображение.",
+			"minimap": "Невозможно сделать автоматическую поддержку для всех существующих карт, поэтому изображение карты необходимо создавать вручную. <a href='https://developer.valvesoftware.com/wiki/Creating_a_working_mini-map:ru' target='_blank' class='font-link'>Инструкция</a>.<br> Счетчик людей, НПС и торговцев.<br> Компас.<br> Время (Helix | NutScript).",
+			"ammo-header": "Аммуниция",
+			"ammo-text": "Счетчик патронов в магазине, основных и дополнительных патронов.<br> Изображение используемого типа патронов.",
+			"hotkey-header": "Горячие Клавиши (Helix | NutScript)",
+			"hotkey-text": "Изображение для каждого предмета.<br> Звук и надпись использования.",
+			"inventory-header": "Инвентарь",
+			"inventory-text": "Отдельные слоты для брони, оружия и горячих клавиш. Таблица предметов, которые можно разместить в слот. Автоматическая экипировка предметов размещенных в слоте.<br> Изображение игрока зависит от модели его брони.<br> Система веса снаряжения (авторы neon, DrodA)."
+		},
+		"mw": {
+			"text": "Система контрольных точек. Команды для создания и удаления контрольных точек. Возможность изменить описание контрольной точки.<br> Счетчик боеприпасов, гранат и ослепляющих гранат.<br> Команда для создания объявления.<br> Команда для создания субтитров.<br> 2D Радар. Отображает контрольные точки.<br> Индикатор положения игрока."
+		},
+		"daynight": {
+			"text": "Основан на <a href='https://steamcommunity.com/sharedfiles/filedetails/?id=1614964558' target='_blank' class='font-link'>аддоне</a>.<br> Источники света, которые включаются только ночью, и выключаются с наступлением дня.<br> Торговец, который появляется только ночью в случайных местах, и исчезает с наступлением дня."
+		}
+	}
+}
