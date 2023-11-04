@@ -22,6 +22,7 @@ export function Home() {
 
 	const landing = addElement("img", containerRight);
 	landing.className = "landing";
+	landing.src = localStorage.getItem("theme") == "On" ? "./src/assets/landing-on.svg" : "./src/assets/landing-off.svg";
 
 	const containerMarginBottom = addElement("container-margin", container);
 	containerMarginBottom.style.minHeight = "140px";

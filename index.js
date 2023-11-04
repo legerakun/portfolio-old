@@ -8,6 +8,7 @@ import { Stalker } from "./src/projects/stalker.js";
 import { Fallout } from "./src/projects/fallout.js";
 import { MW } from "./src/projects/mw.js";
 import { Daynight } from "./src/projects/daynight.js";
+import { setTheme } from "./src/components/utils.js";
 
 function onLoad() {
 	if (history.state == null) {
@@ -26,6 +27,7 @@ function onLoad() {
 	onPopstate();
 	Footer();
 	Preloader();
+	setTheme();
 }
 
 function onScroll() {

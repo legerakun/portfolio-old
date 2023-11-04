@@ -1,4 +1,5 @@
 import locales from "../data/locales.json" assert { type: "json" };
+import themes from "../data/themes.json" assert { type: "json" };
 
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
@@ -142,31 +143,21 @@ function setLanguage() {
 }
 
 function setTheme() {
-	if (localStorage.getItem("theme") == "On") {
-		document.documentElement.style.setProperty("--main-color", "rgb(255, 120, 0)"); 
-		document.documentElement.style.setProperty("--font-color", "rgb(0, 0, 0)");
-		document.documentElement.style.setProperty("--bg-color", "rgb(255, 255, 255)");
-		document.documentElement.style.setProperty("--navbar-color", "rgba(255, 255, 255, 0.9)");
-		document.documentElement.style.setProperty("--main-filter", "invert(78%) sepia(59%) saturate(7435%) hue-rotate(0deg) brightness(102%) contrast(105%)");
-		document.documentElement.style.setProperty("--shadow-color", "rgb(100, 100, 100)");
+	const theme = localStorage.getItem("theme") == "On" ? themes.on : themes.off;
 
-		if (history.state.page == 0) {
-			const landing = document.querySelector(".landing");
-			landing.src = "./src/assets/landing-on.svg";
-		}
-	} else {
-		document.documentElement.style.setProperty("--main-color", "rgb(240, 220, 80)"); 
-		document.documentElement.style.setProperty("--font-color", "rgb(210, 210, 210)");
-		document.documentElement.style.setProperty("--bg-color", "rgb(20, 20, 20)");
-		document.documentElement.style.setProperty("--navbar-color", "rgba(20, 20, 20, 0.9)");
-		document.documentElement.style.setProperty("--main-filter", "invert(75%) sepia(54%) saturate(496%) hue-rotate(6deg) brightness(110%) contrast(88%)");
-		document.documentElement.style.setProperty("--shadow-color", "blue");
+	document.documentElement.style.setProperty("--main-color", findKey(theme, "main-color")); 
+	document.documentElement.style.setProperty("--font-color", findKey(theme, "font-color"));
+	document.documentElement.style.setProperty("--bg-color", findKey(theme, "bg-color"));
+	document.documentElement.style.setProperty("--navbar-color", findKey(theme, "navbar-color"));
+	document.documentElement.style.setProperty("--main-filter", findKey(theme, "main-filter"));
+	document.documentElement.style.setProperty("--shadow-color", findKey(theme, "shadow-color"));
 
-		if (history.state.page == 0) {
-			const landing = document.querySelector(".landing");
-			landing.src = "./src/assets/landing-off.svg";
-		}
+	if (history.state.page == 0) {
+		const landing = document.querySelector(".landing");
+		landing.src = localStorage.getItem("theme") == "On" ? "./src/assets/landing-on.svg" : "./src/assets/landing-off.svg";
 	}
+
+	paintFooter();
 }
 
 export { addElement, addTranslation, addLanguage, addTheme, addItem, addProject, addImg, createContainer, paintFooter, setTheme };
