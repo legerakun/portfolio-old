@@ -1,7 +1,7 @@
 import { Navbar, Footer, Preloader } from "./components.js";
 import { Home, About, Projects } from "./pages.js";
 import { Stalker, Fallout, MW, Daynight } from "./projects.js";
-import { setTheme } from "./utils.js";
+import { setLanguage, setTheme } from "./utils.js";
 
 function onLoad() {
 	if (history.state == null) {
@@ -20,6 +20,7 @@ function onLoad() {
 	onPopstate();
 	Footer();
 	Preloader();
+	setLanguage();
 	setTheme();
 }
 

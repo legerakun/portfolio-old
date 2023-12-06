@@ -1,5 +1,5 @@
 import { Home, About, Projects } from "./pages.js";
-import { addElement, addTranslation, addLanguage, addTheme, paintFooter } from "./utils.js";
+import { addElement, addLanguage, addTheme, paintFooter, setLanguage } from "./utils.js";
 
 function changeContainer(index) {
 	const intervalContainer = setInterval(() => {
@@ -22,6 +22,7 @@ function changeContainer(index) {
 		]
 
 		pages[index]();
+		setLanguage();
 	}, 300);
 }
 
@@ -42,7 +43,7 @@ export function Navbar() {
 	const navbarMargin = addElement("navbar-margin", navbar);
 
 	const home = addElement("navbar-item", navbar);
-	addTranslation(home, "home.navbar");
+	home.setAttribute("t", "home.navbar");
 	home.addEventListener("click", function() {
 		if (history.state.page == 0) return; 
 
@@ -51,7 +52,7 @@ export function Navbar() {
 	}, false);
 
 	const about = addElement("navbar-item", navbar);
-	addTranslation(about, "about.navbar");
+	about.setAttribute("t", "about.navbar");
 	about.addEventListener("click", function() {
 		if (history.state.page == 1) return; 
 
@@ -60,7 +61,7 @@ export function Navbar() {
 	}, false);
 
 	const projects = addElement("navbar-item", navbar);
-	addTranslation(projects, "projects.navbar");
+	projects.setAttribute("t", "projects.navbar");
 	projects.addEventListener("click", function() {
 		if (history.state.page == 2) return; 
 

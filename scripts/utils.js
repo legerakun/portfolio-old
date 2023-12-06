@@ -9,14 +9,10 @@ const paintThemeButton = () => localStorage.getItem("theme") == "On" ? "../asset
 
 const paintLanding = () => localStorage.getItem("theme") == "On" ? "../assets/landing-on.svg" : "../assets/landing-off.svg";
 
+const setTranslation = (key) => findValue(localStorage.getItem("language") == "En" ? locales.en : locales.ru, key) ?? key;
 
+export const setLanguage = () => document.querySelectorAll("[t]").forEach((element) => element.innerHTML = setTranslation(element.getAttribute("t")));
 
-export function addTranslation(element, key) {
-	const language = localStorage.getItem("language") == "En" ? locales.en : locales.ru;
-
-	element.innerHTML = findKey(language, key) ?? key;
-	element.key = key;
-}
 export const addElement = (element, parent) => parent.appendChild(document.createElement(element));
 
 export function addLanguage(container, lang) {
