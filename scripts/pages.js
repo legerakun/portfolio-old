@@ -1,5 +1,6 @@
 import { Stalker, Fallout, MW, Daynight } from "./projects.js";
 import { createContainer, addElement, addTranslation, addItem, addProject } from "./utils.js";
+import skills from "../data/skills.json" assert { type: "json" };
 
 export function About() {
 	document.title = "JS | About";
@@ -24,25 +25,6 @@ export function About() {
 	const containerFlex = addElement("container-flex", container);
 	containerFlex.style.flexDirection = "row";
 	containerFlex.style.flexWrap = "wrap";
-
-	const skills = {
-		"skill-cpp": "../assets/skills/skill-cpp.svg",
-		"skill-lua": "../assets/skills/skill-lua.svg",
-		"skill-javascript": "../assets/skills/skill-javascript.svg",
-		"skill-nodejs": "../assets/skills/skill-nodejs.svg",
-		"skill-reactjs": "../assets/skills/skill-reactjs.svg",
-		"skill-python": "../assets/skills/skill-python.svg",
-		"skill-windows": "../assets/skills/skill-windows.svg",
-		"skill-office": "../assets/skills/skill-office.svg",
-		"skill-visualstudio": "../assets/skills/skill-visualstudio.svg",
-		"skill-photoshop": "../assets/skills/skill-photoshop.svg",
-		"skill-arch": "../assets/skills/skill-arch.svg",
-		"skill-bash": "../assets/skills/skill-bash.svg",
-		"skill-git": "../assets/skills/skill-git.svg",
-		"skill-docker": "../assets/skills/skill-docker.svg",
-		"skill-nginx": "../assets/skills/skill-nginx.svg",
-		"skill-opencv": "../assets/skills/skill-opencv.svg"
-	}
 
 	Object.entries(skills).forEach(([key, value]) => addItem(key, value));
 
