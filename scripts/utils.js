@@ -5,9 +5,9 @@ const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
 const findValue = (json, value) => value.split(".").reduce((newValue, key) => newValue[key], json);
 
-const paintThemeButton = () => localStorage.getItem("theme") == "On" ? "../assets/theme-on.svg" : "../assets/theme-off.svg";
+const paintThemeButton = () => localStorage.getItem("theme") == "On" ? "./assets/theme-on.svg" : "./assets/theme-off.svg";
 
-const paintLanding = () => localStorage.getItem("theme") == "On" ? "../assets/landing-on.svg" : "../assets/landing-off.svg";
+const paintLanding = () => localStorage.getItem("theme") == "On" ? "./assets/landing-on.svg" : "./assets/landing-off.svg";
 
 const setTranslation = (key) => findValue(localStorage.getItem("language") == "En" ? locales.en : locales.ru, key) ?? key;
 

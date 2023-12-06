@@ -28,11 +28,11 @@ function changeContainer(index) {
 
 export function Navbar() {
 	const navbar = addElement("navbar", document.body);
-	const line = addElement("hr", document.body);
+	addElement("hr", document.body);
 
 	const logo = addElement("img", navbar);
 	logo.className = "logo";
-	logo.src = "../assets/skills/skill-javascript.svg";
+	logo.src = "./assets/skills/skill-javascript.svg";
 	logo.addEventListener("click", function() {
 		if (history.state.page == 0) return; 
 		
@@ -40,7 +40,7 @@ export function Navbar() {
 		changeContainer(0);
 	}, false);
 
-	const navbarMargin = addElement("navbar-margin", navbar);
+	addElement("navbar-margin", navbar);
 
 	const home = addElement("navbar-item", navbar);
 	home.setAttribute("t", "home.navbar");
@@ -87,21 +87,21 @@ export function Footer() {
 
 	const linkGithub = addElement("img", footerCenter);
 	linkGithub.className = "footer-item";
-	linkGithub.src = "../assets/logo-github.svg";
+	linkGithub.src = "./assets/logo-github.svg";
 	linkGithub.addEventListener("click", function() {
 		window.open("https://github.com/legerakun", "_blank")
 	}, false);
 
 	const linkDiscord = addElement("img", footerCenter);
 	linkDiscord.className = "footer-item";
-	linkDiscord.src = "../assets/logo-discord.svg";
+	linkDiscord.src = "./assets/logo-discord.svg";
 	linkDiscord.addEventListener("click", function() {
 		window.open("https://discord.com/users/153491549995401216", "_blank")
 	}, false);
 
 	const linkSteam = addElement("img", footerCenter);
 	linkSteam.className = "footer-item";
-	linkSteam.src = "../assets/logo-steam.svg";
+	linkSteam.src = "./assets/logo-steam.svg";
 	linkSteam.addEventListener("click", function() {
 		window.open("https://steamcommunity.com/id/legera_kun/", "_blank")
 	}, false);
@@ -124,7 +124,7 @@ export function Preloader() {
 	preloader.style.opacity = "1.0";
 
 	const img = addElement("img", preloader);
-	img.src = "../assets/skills/skill-javascript.svg";
+	img.src = "./assets/skills/skill-javascript.svg";
 	img.className = "preloader-img";
 	img.style.opacity = "0.0";
 
