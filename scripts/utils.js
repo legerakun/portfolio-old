@@ -3,23 +3,13 @@ import themes from "../data/themes.json" assert { type: "json" };
 
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 
-function findKey(json, key){
-	key = key.split(".");
+const findValue = (json, value) => value.split(".").reduce((newValue, key) => newValue[key], json);
 
-	for (let i = 0; i < key.length; i++) {
-		json = json[key[i]];
-	}
+const paintThemeButton = () => localStorage.getItem("theme") == "On" ? "../assets/theme-on.svg" : "../assets/theme-off.svg";
 
-	return json;
-}
+const paintLanding = () => localStorage.getItem("theme") == "On" ? "../assets/landing-on.svg" : "../assets/landing-off.svg";
 
-export function addElement(element, parent) {
-	const newElement = document.createElement(element);
 
-	parent.appendChild(newElement);
-
-	return newElement;
-}
 
 export function addTranslation(element, key) {
 	const language = localStorage.getItem("language") == "En" ? locales.en : locales.ru;
@@ -27,6 +17,7 @@ export function addTranslation(element, key) {
 	element.innerHTML = findKey(language, key) ?? key;
 	element.key = key;
 }
+export const addElement = (element, parent) => parent.appendChild(document.createElement(element));
 
 export function addLanguage(container, lang) {
 	const button = addElement("language", container);
@@ -44,6 +35,7 @@ export function addLanguage(container, lang) {
 export function addTheme(container) {
 	const img = addElement("img", container)
 	img.className = "theme";
+	img.src = paintThemeButton();
 	img.addEventListener("click", function() {
 		if (localStorage.getItem("theme") == "On") {
 			localStorage.setItem("theme", "Off");
@@ -51,12 +43,9 @@ export function addTheme(container) {
 			localStorage.setItem("theme", "On");
 		}
 
-		img.src = localStorage.getItem("theme") == "On" ? "../assets/theme-on.svg" : "../assets/theme-off.svg";
 		setTheme();
 		paintFooter();
 	}, false);
-
-	img.src = localStorage.getItem("theme") == "On" ? "../assets/theme-off.svg" : "../assets/theme-on.svg";
 }
 
 export function addItem(alt, src) {
@@ -75,6 +64,7 @@ export function addProject(alt, src, title, translationKey, navpage, func) {
 	panel.addEventListener("click", function() {
 		history.pushState({page: navpage}, "");
 		func();
+		setLanguage();
 	}, false);
 
 	const img = addElement("img", panel);
@@ -86,7 +76,7 @@ export function addProject(alt, src, title, translationKey, navpage, func) {
 	header.innerHTML = title;
 
 	const font = addElement("container-flex-font", panel);
-	addTranslation(font, translationKey);
+	font.setAttribute("t", translationKey);
 }
 
 export function addImg(alt, src, container) {
@@ -127,8 +117,9 @@ export function createContainer(marginTop) {
 export function paintFooter() {
 	const ru = document.querySelector(".Ru");
 	const en = document.querySelector(".En");
-	const on = document.querySelector(".theme.On");
-	const off = document.querySelector(".theme.Off");
+	const theme = document.querySelector(".theme");
+
+	theme.src = paintThemeButton();
 
 	const mainColor = document.documentElement.style.getPropertyValue("--main-color"); 
 	const fontColor = document.documentElement.style.getPropertyValue("--font-color");
@@ -137,25 +128,19 @@ export function paintFooter() {
 	ru.style.color = localStorage.getItem("language") == "En" ? fontColor : mainColor;
 }
 
-function setLanguage() {
-	const allElements = Array.from(document.querySelectorAll("*"));
-
-	allElements.filter((element) => element.key).forEach((element) => addTranslation(element, element.key));
-}
-
 export function setTheme() {
 	const theme = localStorage.getItem("theme") == "On" ? themes.on : themes.off;
 
-	document.documentElement.style.setProperty("--main-color", findKey(theme, "main-color")); 
-	document.documentElement.style.setProperty("--font-color", findKey(theme, "font-color"));
-	document.documentElement.style.setProperty("--bg-color", findKey(theme, "bg-color"));
-	document.documentElement.style.setProperty("--navbar-color", findKey(theme, "navbar-color"));
-	document.documentElement.style.setProperty("--main-filter", findKey(theme, "main-filter"));
-	document.documentElement.style.setProperty("--shadow-color", findKey(theme, "shadow-color"));
+	document.documentElement.style.setProperty("--main-color", findValue(theme, "main-color")); 
+	document.documentElement.style.setProperty("--font-color", findValue(theme, "font-color"));
+	document.documentElement.style.setProperty("--bg-color", findValue(theme, "bg-color"));
+	document.documentElement.style.setProperty("--navbar-color", findValue(theme, "navbar-color"));
+	document.documentElement.style.setProperty("--main-filter", findValue(theme, "main-filter"));
+	document.documentElement.style.setProperty("--shadow-color", findValue(theme, "shadow-color"));
 
 	if (history.state.page == 0) {
 		const landing = document.querySelector(".landing");
-		landing.src = localStorage.getItem("theme") == "On" ? "../assets/landing-on.svg" : "../assets/landing-off.svg";
+		landing.src = paintLanding();
 	}
 
 	paintFooter();
