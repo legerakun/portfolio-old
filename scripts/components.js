@@ -1,30 +1,4 @@
-import { Home, About, Projects } from "./pages.js";
-import { addElement, addLanguage, addTheme, paintFooter, setLanguage } from "./utils.js";
-
-function changeContainer(index) {
-	const intervalContainer = setInterval(() => {
-		const container = document.querySelector("container");
-
-		const containerOpacity = Number(container.style.opacity);
-
-		if (containerOpacity > 0.0) {
-			container.style.opacity = containerOpacity - 0.03;
-		} else {
-			clearInterval(intervalContainer);
-		}
-	}, 10)
-
-	setTimeout(() => {
-		const pages = [
-			Home,
-			About,
-			Projects
-		]
-
-		pages[index]();
-		setLanguage();
-	}, 300);
-}
+import { addElement, addLanguage, addTheme, paintFooter, changeContainer } from "./utils.js";
 
 export function Navbar() {
 	const navbar = addElement("navbar", document.body);
@@ -33,41 +7,33 @@ export function Navbar() {
 	const logo = addElement("img", navbar);
 	logo.className = "logo";
 	logo.src = "./assets/skills/skill-javascript.svg";
-	logo.addEventListener("click", function() {
-		if (history.state.page == 0) return; 
-		
-		history.pushState({page: 0}, "");
-		changeContainer(0);
-	}, false);
+	logo.addEventListener("click", () => {
+		history.pushState({page: "home"}, "", "?page=home");
+		changeContainer("home");
+	});
 
 	addElement("navbar-margin", navbar);
 
 	const home = addElement("navbar-item", navbar);
 	home.setAttribute("t", "home.navbar");
-	home.addEventListener("click", function() {
-		if (history.state.page == 0) return; 
-
-		history.pushState({page: 0}, "");
-		changeContainer(0);
-	}, false);
+	home.addEventListener("click", () => {
+		history.pushState({page: "home"}, "", "?page=home");
+		changeContainer("home");
+	});
 
 	const about = addElement("navbar-item", navbar);
 	about.setAttribute("t", "about.navbar");
-	about.addEventListener("click", function() {
-		if (history.state.page == 1) return; 
-
-		history.pushState({page: 1}, "");
-		changeContainer(1);
-	}, false);
+	about.addEventListener("click", () => {
+		history.pushState({page: "about"}, "", "?page=about");
+		changeContainer("about");
+	});
 
 	const projects = addElement("navbar-item", navbar);
 	projects.setAttribute("t", "projects.navbar");
-	projects.addEventListener("click", function() {
-		if (history.state.page == 2) return; 
-
-		history.pushState({page: 2}, "");
-		changeContainer(2);
-	}, false);
+	projects.addEventListener("click", () => {
+		history.pushState({page: "projects"}, "", "?page=projects");
+		changeContainer("projects");
+	});
 }
 
 export function Footer() {
@@ -88,23 +54,23 @@ export function Footer() {
 	const linkGithub = addElement("img", footerCenter);
 	linkGithub.className = "footer-item";
 	linkGithub.src = "./assets/logo-github.svg";
-	linkGithub.addEventListener("click", function() {
+	linkGithub.addEventListener("click", () => 
 		window.open("https://github.com/legerakun", "_blank")
-	}, false);
+	);
 
 	const linkDiscord = addElement("img", footerCenter);
 	linkDiscord.className = "footer-item";
 	linkDiscord.src = "./assets/logo-discord.svg";
-	linkDiscord.addEventListener("click", function() {
+	linkDiscord.addEventListener("click", () => 
 		window.open("https://discord.com/users/153491549995401216", "_blank")
-	}, false);
+	);
 
 	const linkSteam = addElement("img", footerCenter);
 	linkSteam.className = "footer-item";
 	linkSteam.src = "./assets/logo-steam.svg";
-	linkSteam.addEventListener("click", function() {
+	linkSteam.addEventListener("click", () => 
 		window.open("https://steamcommunity.com/id/legera_kun/", "_blank")
-	}, false);
+	);
 
 	const footerRight = addElement("footer", footer);
 	footerRight.style.position = "relative";

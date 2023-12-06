@@ -1,11 +1,11 @@
 import { Stalker, Fallout, MW, Daynight } from "./projects.js";
-import { createContainer, addElement, addItem, addProject } from "./utils.js";
+import { createContainer, addElement, addItem, addProject, setLanguage, setTheme } from "./utils.js";
 import skills from "../data/skills.json" assert { type: "json" };
 
 export function Home() {
 	document.title = "JS | Home";
 
-	const [container, navbar] = createContainer("160px");
+	const container = createContainer();
 
 	const containerFlex = addElement("container-flex", container);
 	containerFlex.className = "resize";
@@ -15,24 +15,24 @@ export function Home() {
 
 	const containerRight = addElement("container-flex", containerFlex);
 
-	const homeHeader = addElement("font-header", containerLeft);
-	homeHeader.setAttribute("t", "home.header");
+	addElement("font-header", containerLeft).setAttribute("t", "home.header");
 
-	const home = addElement("font", containerLeft);
-	home.setAttribute("t", "home.text");
+	addElement("font", containerLeft).setAttribute("t", "home.text");
 
 	const landing = addElement("img", containerRight);
 	landing.className = "landing";
 	landing.src = localStorage.getItem("theme") == "On" ? "./assets/landing-on.svg" : "./assets/landing-off.svg";
 
-	const containerMarginBottom = addElement("container-margin", container);
-	containerMarginBottom.style.minHeight = "140px";
+	addElement("container-margin", container);
+
+	setLanguage();
+	setTheme();
 }
 
 export function About() {
 	document.title = "JS | About";
 
-	const [container, navbar] = createContainer("160px");
+	const container = createContainer();
 
 	const aboutHeader = addElement("font-header", container);
 	aboutHeader.style.textAlign = "center";
@@ -42,8 +42,7 @@ export function About() {
 	about.style.textAlign = "center";
 	about.setAttribute("t", "about.text");
 
-	const containerMarginCenter = addElement("container-margin", container);
-	containerMarginCenter.style.minHeight = "80px";
+	addElement("container-margin", container).style.minHeight = "80px";
 
 	const aboutHeader1 = addElement("font-header", container);
 	aboutHeader1.style.textAlign = "center";
@@ -53,16 +52,18 @@ export function About() {
 	containerFlex.style.flexDirection = "row";
 	containerFlex.style.flexWrap = "wrap";
 
-	Object.entries(skills).forEach(([key, value]) => addItem(key, value));
+	Object.entries(skills).forEach(([alt, image]) => addItem(alt, image));
 
-	const containerMarginBottom = addElement("container-margin", container);
-	containerMarginBottom.style.minHeight = "140px";
+	addElement("container-margin", container);
+
+	setLanguage();
+	setTheme();
 }
 
 export function Projects() {
 	document.title = "JS | Projects";
 
-	const [container, navbar] = createContainer("160px");
+	const container = createContainer();
 
 	const projectsHeader = addElement("font-header", container);
 	projectsHeader.setAttribute("t", "Garry's Mod");
@@ -76,34 +77,42 @@ export function Projects() {
 		"./assets/projects/stalker/stalker.svg",
 		"S.T.A.L.K.E.R.",
 		"projects.stalker",
-		3,
-		Stalker
+		"stalker"
 	);
 
 	addProject("project-fallout", 
 		"./assets/projects/fallout/fallout.svg",
 		"Fallout",
 		"projects.fallout",
-		4,
-		Fallout
+		"fallout"
 	);
 
 	addProject("project-modernwarfare", 
 		"./assets/projects/mw/mw.svg",
 		"COD: Modern Warfare",
 		"projects.mw",
-		5,
-		MW
+		"mw"
 	);
 
 	addProject("project-daynight", 
 		"./assets/projects/daynight/daynight.svg",
 		"Day & Night Trader",
 		"projects.daynight",
-		6,
-		Daynight
+		"daynight"
 	);
 
-	const containerMarginBottom = addElement("container-margin", container);
-	containerMarginBottom.style.minHeight = "140px";
+	addElement("container-margin", container);
+
+	setLanguage();
+	setTheme();
 }
+
+export const pages = {
+	"home":Home,
+	"about":About,
+	"projects":Projects,
+	"stalker":Stalker,
+	"fallout":Fallout,
+	"mw":MW,
+	"daynight":Daynight
+};

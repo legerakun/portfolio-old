@@ -1,11 +1,17 @@
 import { Navbar, Footer, Preloader } from "./components.js";
-import { Home, About, Projects } from "./pages.js";
-import { Stalker, Fallout, MW, Daynight } from "./projects.js";
-import { setLanguage, setTheme } from "./utils.js";
+import { pages } from "./pages.js";
 
-function onLoad() {
-	if (history.state == null) {
-		history.replaceState({page: 0}, "");
+window.addEventListener("load", () => {
+	Navbar();
+	Footer();
+
+	const url = new URL(document.location);
+
+	if (url.search == "") {
+		history.pushState({page: "home"}, "", "?page=home");
+		pages["home"]();
+	} else {
+		pages[url.search.substring(6)]();
 	}
 
 	if (!localStorage.getItem("language")) {
@@ -16,34 +22,13 @@ function onLoad() {
 		localStorage.setItem("theme", "Off");
 	}
 
-	Navbar();
-	onPopstate();
-	Footer();
 	Preloader();
-	setLanguage();
-	setTheme();
-}
+});
 
-function onScroll() {
-	const line = document.querySelector("hr");
+window.addEventListener("scroll", () => 
+	document.querySelector("hr").style.display = window.scrollY != 0 ? "block" : "none"
+);
 
-	line.style.display = window.scrollY != 0 ? "block" : "none";
-}
-
-function onPopstate() {
-	const pages = [
-		Home, 
-		About, 
-		Projects,
-		Stalker, 
-		Fallout, 
-		MW, 
-		Daynight
-	]
-
-	pages[history.state.page]();
-}
-
-window.addEventListener("load", (event) => onLoad());
-window.addEventListener("scroll", (event) => onScroll());
-window.addEventListener("popstate", (event) => onPopstate());
+window.addEventListener("popstate", () => 
+	pages[history.state.page]()
+);

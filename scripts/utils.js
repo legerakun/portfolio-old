@@ -1,3 +1,4 @@
+import { pages } from "./pages.js";
 import locales from "../data/locales.json" assert { type: "json" };
 import themes from "../data/themes.json" assert { type: "json" };
 
@@ -7,32 +8,49 @@ const findValue = (json, value) => value.split(".").reduce((newValue, key) => ne
 
 const paintThemeButton = () => localStorage.getItem("theme") == "On" ? "./assets/theme-on.svg" : "./assets/theme-off.svg";
 
-const paintLanding = () => localStorage.getItem("theme") == "On" ? "./assets/landing-on.svg" : "./assets/landing-off.svg";
-
 const setTranslation = (key) => findValue(localStorage.getItem("language") == "En" ? locales.en : locales.ru, key) ?? key;
 
 export const setLanguage = () => document.querySelectorAll("[t]").forEach((element) => element.innerHTML = setTranslation(element.getAttribute("t")));
 
 export const addElement = (element, parent) => parent.appendChild(document.createElement(element));
 
+export function changeContainer(page) {
+	const intervalContainer = setInterval(() => {
+		const container = document.querySelector("container");
+
+		const containerOpacity = Number(container.style.opacity);
+
+		if (containerOpacity > 0.0) {
+			container.style.opacity = containerOpacity - 0.03;
+		} else {
+			clearInterval(intervalContainer);
+		}
+	}, 10)
+
+	setTimeout(() => {
+		pages[page]();
+		setLanguage();
+	}, 300);
+}
+
 export function addLanguage(container, lang) {
 	const button = addElement("language", container);
 	button.innerHTML = lang;
 	button.className = lang;
-	button.addEventListener("click", function() {
+	button.addEventListener("click", () => {
 		if (localStorage.getItem("language") == lang) return;
 		
 		localStorage.setItem("language", lang);
 		setLanguage();
 		paintFooter();
-	}, false);
+	});
 }
 
 export function addTheme(container) {
-	const img = addElement("img", container)
+	const img = addElement("img", container);
 	img.className = "theme";
 	img.src = paintThemeButton();
-	img.addEventListener("click", function() {
+	img.addEventListener("click", () => {
 		if (localStorage.getItem("theme") == "On") {
 			localStorage.setItem("theme", "Off");
 		} else {
@@ -41,7 +59,7 @@ export function addTheme(container) {
 
 		setTheme();
 		paintFooter();
-	}, false);
+	});
 }
 
 export function addItem(alt, src) {
@@ -53,20 +71,19 @@ export function addItem(alt, src) {
 	skill.src = src;
 }
 
-export function addProject(alt, src, title, translationKey, navpage, func) {
+export function addProject(alt, image, title, translationKey, navpage) {
 	const container = document.querySelector("container-flex");
 
 	const panel = addElement("container-flex-1", container);
-	panel.addEventListener("click", function() {
-		history.pushState({page: navpage}, "");
-		func();
-		setLanguage();
-	}, false);
+	panel.addEventListener("click", () => {
+		history.pushState({page: navpage}, "", "?page=" + navpage);
+		changeContainer(navpage);
+	});
 
 	const img = addElement("img", panel);
 	img.className = "flex-item-1";
 	img.alt = alt;
-	img.src = src;
+	img.src = image;
 
 	const header = addElement("container-flex-title", panel);
 	header.innerHTML = title;
@@ -80,12 +97,12 @@ export function addImg(alt, src, container) {
 	img.className = "flex-item-2";
 	img.alt = alt;
 	img.src = src;
-	img.addEventListener("click", function() {
+	img.addEventListener("click", () =>
 		window.open(src.substring(0, src.length - 18) + ".jpg", "_blank")
-	}, false);
+	);
 }
 
-export function createContainer(marginTop) {
+export function createContainer() {
 	let container = document.querySelector("container");
 	if (container ?? null) container.remove();
 	container = addElement("container", document.body);
@@ -101,13 +118,12 @@ export function createContainer(marginTop) {
 		}
 	}, 10)
 
-	const navbar = document.querySelector("navbar");
-	navbar.before(container);
+	document.querySelector("navbar").before(container);
 
 	const containerMarginTop = addElement("container-margin", container);
-	containerMarginTop.style.minHeight = marginTop;
+	containerMarginTop.style.minHeight = "160px";
 
-	return [container, navbar];
+	return container;
 }
 
 export function paintFooter() {
@@ -133,11 +149,6 @@ export function setTheme() {
 	document.documentElement.style.setProperty("--navbar-color", findValue(theme, "navbar-color"));
 	document.documentElement.style.setProperty("--main-filter", findValue(theme, "main-filter"));
 	document.documentElement.style.setProperty("--shadow-color", findValue(theme, "shadow-color"));
-
-	if (history.state.page == 0) {
-		const landing = document.querySelector(".landing");
-		landing.src = paintLanding();
-	}
 
 	paintFooter();
 }
