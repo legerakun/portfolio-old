@@ -12,7 +12,8 @@ function findKey(json, key){
 
 	return json;
 }
-function addElement(element, parent) {
+
+export function addElement(element, parent) {
 	const newElement = document.createElement(element);
 
 	parent.appendChild(newElement);
@@ -20,14 +21,14 @@ function addElement(element, parent) {
 	return newElement;
 }
 
-function addTranslation(element, key) {
+export function addTranslation(element, key) {
 	const language = localStorage.getItem("language") == "En" ? locales.en : locales.ru;
 
 	element.innerHTML = findKey(language, key) ?? key;
 	element.key = key;
 }
 
-function addLanguage(container, lang) {
+export function addLanguage(container, lang) {
 	const button = addElement("language", container);
 	button.innerHTML = lang;
 	button.className = lang;
@@ -40,7 +41,7 @@ function addLanguage(container, lang) {
 	}, false);
 }
 
-function addTheme(container) {
+export function addTheme(container) {
 	const img = addElement("img", container)
 	img.className = "theme";
 	img.addEventListener("click", function() {
@@ -50,15 +51,15 @@ function addTheme(container) {
 			localStorage.setItem("theme", "On");
 		}
 
-		img.src = localStorage.getItem("theme") == "On" ? "./src/assets/theme-on.svg" : "./src/assets/theme-off.svg";
+		img.src = localStorage.getItem("theme") == "On" ? "../assets/theme-on.svg" : "../assets/theme-off.svg";
 		setTheme();
 		paintFooter();
 	}, false);
 
-	img.src = localStorage.getItem("theme") == "On" ? "./src/assets/theme-off.svg" : "./src/assets/theme-on.svg";
+	img.src = localStorage.getItem("theme") == "On" ? "../assets/theme-off.svg" : "../assets/theme-on.svg";
 }
 
-function addItem(alt, src) {
+export function addItem(alt, src) {
 	const container = document.querySelector("container-flex");
 
 	const skill = addElement("img", container);
@@ -67,7 +68,7 @@ function addItem(alt, src) {
 	skill.src = src;
 }
 
-function addProject(alt, src, title, translationKey, navpage, func) {
+export function addProject(alt, src, title, translationKey, navpage, func) {
 	const container = document.querySelector("container-flex");
 
 	const panel = addElement("container-flex-1", container);
@@ -88,7 +89,7 @@ function addProject(alt, src, title, translationKey, navpage, func) {
 	addTranslation(font, translationKey);
 }
 
-function addImg(alt, src, container) {
+export function addImg(alt, src, container) {
 	const img = addElement("img", container);
 	img.className = "flex-item-2";
 	img.alt = alt;
@@ -98,7 +99,7 @@ function addImg(alt, src, container) {
 	}, false);
 }
 
-function createContainer(marginTop) {
+export function createContainer(marginTop) {
 	let container = document.querySelector("container");
 	if (container ?? null) container.remove();
 	container = addElement("container", document.body);
@@ -123,7 +124,7 @@ function createContainer(marginTop) {
 	return [container, navbar];
 }
 
-function paintFooter() {
+export function paintFooter() {
 	const ru = document.querySelector(".Ru");
 	const en = document.querySelector(".En");
 	const on = document.querySelector(".theme.On");
@@ -142,7 +143,7 @@ function setLanguage() {
 	allElements.filter((element) => element.key).forEach((element) => addTranslation(element, element.key));
 }
 
-function setTheme() {
+export function setTheme() {
 	const theme = localStorage.getItem("theme") == "On" ? themes.on : themes.off;
 
 	document.documentElement.style.setProperty("--main-color", findKey(theme, "main-color")); 
@@ -154,10 +155,8 @@ function setTheme() {
 
 	if (history.state.page == 0) {
 		const landing = document.querySelector(".landing");
-		landing.src = localStorage.getItem("theme") == "On" ? "./src/assets/landing-on.svg" : "./src/assets/landing-off.svg";
+		landing.src = localStorage.getItem("theme") == "On" ? "../assets/landing-on.svg" : "../assets/landing-off.svg";
 	}
 
 	paintFooter();
 }
-
-export { addElement, addTranslation, addLanguage, addTheme, addItem, addProject, addImg, createContainer, paintFooter, setTheme };

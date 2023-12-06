@@ -1,14 +1,7 @@
-import { Preloader } from "./src/components/preloader.js";
-import { Navbar } from "./src/components/navbar.js";
-import { Footer } from "./src/components/footer.js";
-import { Home } from "./src/home.js";
-import { About } from "./src/about.js";
-import { Projects } from "./src/projects.js";
-import { Stalker } from "./src/projects/stalker.js";
-import { Fallout } from "./src/projects/fallout.js";
-import { MW } from "./src/projects/mw.js";
-import { Daynight } from "./src/projects/daynight.js";
-import { setTheme } from "./src/components/utils.js";
+import { Navbar, Footer, Preloader } from "./components.js";
+import { Home, About, Projects } from "./pages.js";
+import { Stalker, Fallout, MW, Daynight } from "./projects.js";
+import { setTheme } from "./utils.js";
 
 function onLoad() {
 	if (history.state == null) {
