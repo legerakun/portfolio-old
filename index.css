@@ -55,6 +55,7 @@ container {
 
 container-margin {
 	position: relative;
+	min-height: 140px;
 	width: 1px;
 	background: black;
 	opacity: 0.0;
