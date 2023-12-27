@@ -1,6 +1,11 @@
 import { pages } from "./pages.js";
-import locales from "../data/locales.json" assert { type: "json" };
-import themes from "../data/themes.json" assert { type: "json" };
+const locales = await fetch("../data/locales.json")
+  .then((r) => r.json())
+  .then((d) => d);
+
+const themes = await fetch("../data/themes.json")
+  .then((r) => r.json())
+  .then((d) => d);
 
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 

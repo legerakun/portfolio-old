@@ -1,9 +1,11 @@
 import { Stalker, Fallout, MW, Daynight } from "./projects.js";
 import { createContainer, addElement, addItem, addProject, setLanguage, setTheme } from "./utils.js";
-import skills from "../data/skills.json" assert { type: "json" };
 
 export function Home() {
 	document.title = "JS | Home";
+const skills = await fetch("../data/skills.json")
+  .then((r) => r.json())
+  .then((d) => d);
 
 	const container = createContainer();
 
