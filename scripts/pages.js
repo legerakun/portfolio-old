@@ -1,120 +1,173 @@
 import { Stalker, Fallout, MW, Daynight } from "./projects.js";
-import { createContainer, addElement, addItem, addProject, setLanguage, setTheme } from "./utils.js";
+import { createContainer, addElement, addItem, setLanguage, setTheme }
+  from "./utils.js";
 
-export function Home() {
-	document.title = "JS | Home";
 const skills = await fetch("../data/skills.json")
   .then((r) => r.json())
   .then((d) => d);
 
-	const container = createContainer();
+export const changeContainer = (page) => {
+  const intervalContainer = setInterval(() => {
+    const container = document.querySelector(".container");
 
-	const containerFlex = addElement("container-flex", container);
-	containerFlex.className = "resize";
+    const containerOpacity = Number(container.style.opacity);
 
-	const containerLeft = addElement("container-flex", containerFlex);
-	containerLeft.style.flexDirection = "column";
+    if (containerOpacity > 0.0) {
+      container.style.opacity = containerOpacity - 0.03;
+    } else {
+      clearInterval(intervalContainer);
+    }
+  }, 10);
 
-	const containerRight = addElement("container-flex", containerFlex);
+  setTimeout(() => {
+    pages[page]();
+    setLanguage();
+  }, 300);
+};
 
-	addElement("font-header", containerLeft).setAttribute("t", "home.header");
+export const Home = () => {
+  document.title = "JS | Home";
 
-	addElement("font", containerLeft).setAttribute("t", "home.text");
+  const container = createContainer();
 
-	const landing = addElement("img", containerRight);
-	landing.className = "landing";
-	landing.src = localStorage.getItem("theme") == "On" ? "./assets/landing-on.svg" : "./assets/landing-off.svg";
+  const containerFlex = addElement("div", container);
+  containerFlex.className = "container-flex";
+  containerFlex.style.flexDirection = "row";
 
-	addElement("container-margin", container);
+  const containerLeft = addElement("div", containerFlex);
+  containerLeft.className = "container-flex";
+  containerLeft.style.flexDirection = "column";
 
-	setLanguage();
-	setTheme();
-}
+  const containerRight = addElement("div", containerFlex);
+  containerRight.className = "container-flex";
 
-export function About() {
-	document.title = "JS | About";
+  const header = addElement("font", containerLeft);
+  header.className = "font-header";
+  header.setAttribute("t", "home.header");
 
-	const container = createContainer();
+  addElement("font", containerLeft).setAttribute("t", "home.text");
 
-	const aboutHeader = addElement("font-header", container);
-	aboutHeader.style.textAlign = "center";
-	aboutHeader.setAttribute("t", "about.header");
+  const landing = addElement("img", containerRight);
+  landing.className = "landing";
+  landing.src = localStorage.getItem("theme") == "On"
+		? "./assets/landing-on.svg"
+		: "./assets/landing-off.svg";
 
-	const about = addElement("font", container);
-	about.style.textAlign = "center";
-	about.setAttribute("t", "about.text");
+  setLanguage();
+  setTheme();
+};
 
-	addElement("container-margin", container).style.minHeight = "80px";
+export const About = () => {
+  document.title = "JS | About";
 
-	const aboutHeader1 = addElement("font-header", container);
-	aboutHeader1.style.textAlign = "center";
-	aboutHeader1.setAttribute("t", "about.skillset");
+  const container = createContainer();
 
-	const containerFlex = addElement("container-flex", container);
-	containerFlex.style.flexDirection = "row";
-	containerFlex.style.flexWrap = "wrap";
+  const aboutHeader = addElement("font", container);
+  aboutHeader.className = "font-header";
+  aboutHeader.style.textAlign = "center";
+  aboutHeader.setAttribute("t", "about.header");
 
-	Object.entries(skills).forEach(([alt, image]) => addItem(alt, image));
+  const about = addElement("font", container);
+  about.style.textAlign = "center";
+  about.setAttribute("t", "about.text");
 
-	addElement("container-margin", container);
+  const aboutHeader1 = addElement("font", container);
+  aboutHeader1.className = "font-header";
+  aboutHeader1.style.textAlign = "center";
+  aboutHeader1.setAttribute("t", "about.skillset");
 
-	setLanguage();
-	setTheme();
-}
+  const containerFlex = addElement("div", container);
+  containerFlex.className = "container-flex";
+  containerFlex.style.flexDirection = "row";
+  containerFlex.style.flexWrap = "wrap";
 
-export function Projects() {
-	document.title = "JS | Projects";
+  Object.entries(skills).forEach(([alt, image]) => addItem(alt, image));
 
-	const container = createContainer();
+  setLanguage();
+  setTheme();
+};
 
-	const projectsHeader = addElement("font-header", container);
-	projectsHeader.setAttribute("t", "Garry's Mod");
-	projectsHeader.style.textAlign = "center";
+export const Projects = () => {
+  document.title = "JS | Projects";
 
-	const containerFlex = addElement("container-flex", container);
-	containerFlex.style.flexDirection = "row";
-	containerFlex.style.flexWrap = "wrap";
+  const container = createContainer();
 
-	addProject("project-stalker", 
-		"./assets/projects/stalker/stalker.svg",
-		"S.T.A.L.K.E.R.",
-		"projects.stalker",
-		"stalker"
-	);
+  const projectsHeader = addElement("font", container);
+  projectsHeader.className = "font-header";
+  projectsHeader.setAttribute("t", "Garry's Mod");
+  projectsHeader.style.textAlign = "center";
 
-	addProject("project-fallout", 
-		"./assets/projects/fallout/fallout.svg",
-		"Fallout",
-		"projects.fallout",
-		"fallout"
-	);
+  const containerFlex = addElement("div", container);
+  containerFlex.className = "container-flex";
+  containerFlex.style.flexDirection = "row";
+  containerFlex.style.flexWrap = "wrap";
 
-	addProject("project-modernwarfare", 
-		"./assets/projects/mw/mw.svg",
-		"COD: Modern Warfare",
-		"projects.mw",
-		"mw"
-	);
+  const addProject = (alt, image, title, translationKey, navpage) => {
+    const container = document.querySelector(".container-flex");
+  
+    const panel = addElement("div", container);
+    panel.className = "project";
+    panel.addEventListener("click", () => {
+      history.pushState({ page: navpage }, "", "?page=" + navpage);
+      changeContainer(navpage);
+    });
+  
+    const img = addElement("img", panel);
+    img.className = "flex-item-1";
+    img.alt = alt;
+    img.src = image;
+  
+    const header = addElement("font", panel);
+    header.className = "project-title";
+    header.innerHTML = title;
+  
+    const font = addElement("font", panel);
+    font.className = "project-font";
+    font.setAttribute("t", translationKey);
+  };
 
-	addProject("project-daynight", 
-		"./assets/projects/daynight/daynight.svg",
-		"Day & Night Trader",
-		"projects.daynight",
-		"daynight"
-	);
+  addProject(
+    "project-stalker",
+    "./assets/projects/stalker/stalker.svg",
+    "S.T.A.L.K.E.R.",
+    "projects.stalker",
+    "stalker"
+  );
 
-	addElement("container-margin", container);
+  addProject(
+    "project-fallout",
+    "./assets/projects/fallout/fallout.svg",
+    "Fallout",
+    "projects.fallout",
+    "fallout"
+  );
 
-	setLanguage();
-	setTheme();
-}
+  addProject(
+    "project-modernwarfare",
+    "./assets/projects/mw/mw.svg",
+    "COD: Modern Warfare",
+    "projects.mw",
+    "mw"
+  );
+
+  addProject(
+    "project-daynight",
+    "./assets/projects/daynight/daynight.svg",
+    "Day & Night Trader",
+    "projects.daynight",
+    "daynight"
+  );
+
+  setLanguage();
+  setTheme();
+};
 
 export const pages = {
-	"home":Home,
-	"about":About,
-	"projects":Projects,
-	"stalker":Stalker,
-	"fallout":Fallout,
-	"mw":MW,
-	"daynight":Daynight
+  home: Home,
+  about: About,
+  projects: Projects,
+  stalker: Stalker,
+  fallout: Fallout,
+  mw: MW,
+  daynight: Daynight,
 };

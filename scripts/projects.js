@@ -1,161 +1,258 @@
-import { createContainer, addElement, addImg, setLanguage, setTheme } from "./utils.js";
+import { createContainer, addElement, addImg, setLanguage, setTheme } 
+  from "./utils.js";
 
-export function Stalker() {
-	document.title = "JS | STALKER";
+export const Stalker = () => {
+  document.title = "JS | STALKER";
 
-	const container = createContainer();
+  const container = createContainer();
 
-	const header = addElement("font-header", container);
-	header.innerHTML = "S.T.A.L.K.E.R.";
-	header.style.textAlign = "center";
+  const header = addElement("font", container);
+  header.className = "font-header";
+  header.innerHTML = "S.T.A.L.K.E.R.";
+  header.style.textAlign = "center";
 
-	addElement("font-header-1", container).setAttribute("t", "PDA");
+  const header1 = addElement("font", container);
+  header1.className = "font-header-1";
+  header1.setAttribute("t", "PDA");
 
-	const containerFlex = addElement("container-flex", container);
-	containerFlex.style.flexDirection = "row";
-	containerFlex.style.flexWrap = "wrap";
+  const containerFlex = addElement("div", container);
+  containerFlex.className = "container-flex";
+  containerFlex.style.flexDirection = "row";
+  containerFlex.style.flexWrap = "wrap";
 
-	addImg("pda-1", "./assets/projects/stalker/6_lowResolution.jpg", containerFlex);
-	addImg("pda-2", "./assets/projects/stalker/7_lowResolution.jpg", containerFlex);
-	addImg("pda-3", "./assets/projects/stalker/8_lowResolution.jpg", containerFlex);
-	addImg("pda-4", "./assets/projects/stalker/9_lowResolution.jpg", containerFlex);
-	addImg("pda-5", "./assets/projects/stalker/10_lowResolution.jpg", containerFlex);
-	addImg("pda-6", "./assets/projects/stalker/11_lowResolution.jpg", containerFlex);
+  addImg(
+    "pda-1",
+    "./assets/projects/stalker/6_lowResolution.jpg",
+    containerFlex
+  );
+	
+  addImg(
+    "pda-2",
+    "./assets/projects/stalker/7_lowResolution.jpg",
+    containerFlex
+  );
 
-	addElement("font-center", container).setAttribute("t", "Info");
+  addImg(
+    "pda-3",
+    "./assets/projects/stalker/8_lowResolution.jpg",
+    containerFlex
+  );
 
-	addElement("font", container).setAttribute("t", "stalker.ranks");
+  addImg(
+    "pda-4",
+    "./assets/projects/stalker/9_lowResolution.jpg",
+    containerFlex
+  );
 
-	addElement("font-center", container).setAttribute("t", "stalker.tasks-header");
+  addImg(
+    "pda-5",
+    "./assets/projects/stalker/10_lowResolution.jpg",
+    containerFlex
+  );
 
-	addElement("font", container).setAttribute("t", "stalker.tasks-text");
+  addImg(
+    "pda-6",
+    "./assets/projects/stalker/11_lowResolution.jpg",
+    containerFlex
+  );
 
-	addElement("font-center", container).setAttribute("t", "stalker.diary-header");
+  const font2 = addElement("font", container);
+  font2.className = "font-center";
+  font2.setAttribute("t", "Info");
 
-	const font = addElement("font", container);
-	font.style.marginBottom = "40px";
-	font.setAttribute("t", "stalker.diary-text");
+  addElement("font", container).setAttribute("t", "stalker.ranks");
 
-	addElement("font-header-1", container).setAttribute("t", "HUD");
+  const font3 = addElement("font", container);
+  font3.className = "font-center";
+  font3.setAttribute("t", "stalker.tasks-header");
 
-	const containerFlex1 = addElement("container-flex", container);
-	containerFlex1.style.flexDirection = "row";
-	containerFlex1.style.flexWrap = "wrap";
+  addElement("font", container).setAttribute("t", "stalker.tasks-text");
 
-	addImg("hud-1", "./assets/projects/stalker/1_lowResolution.jpg", containerFlex1);
-	addImg("hud-2", "./assets/projects/stalker/2_lowResolution.jpg", containerFlex1);
-	addImg("hud-3", "./assets/projects/stalker/3_lowResolution.jpg", containerFlex1);
+  const font4 = addElement("font", container);
+  font4.className = "font-center";
+  font4.setAttribute("t", "stalker.diary-header");
 
-	addElement("font-center", container).setAttribute("t", "Minimap");
+  const font = addElement("font", container);
+  font.style.marginBottom = "40px";
+  font.setAttribute("t", "stalker.diary-text");
 
-	addElement("font", container).setAttribute("t", "stalker.minimap");
+  const header2 = addElement("font", container);
+  header2.className = "font-header-1";
+  header2.setAttribute("t", "HUD");
 
-	addElement("font-center", container).setAttribute("t", "stalker.ammo-header");
+  const containerFlex1 = addElement("div", container);
+  containerFlex1.className = "container-flex";
+  containerFlex1.style.flexDirection = "row";
+  containerFlex1.style.flexWrap = "wrap";
 
-	addElement("font", container).setAttribute("t", "stalker.ammo-text");
+  addImg(
+    "hud-1",
+    "./assets/projects/stalker/1_lowResolution.jpg",
+    containerFlex1
+  );
 
-	addElement("font-center", container).setAttribute("t", "stalker.hotkey-header");
+  addImg(
+    "hud-2",
+    "./assets/projects/stalker/2_lowResolution.jpg",
+    containerFlex1
+  );
 
-	const font1 = addElement("font", container);
-	font1.style.marginBottom = "40px";
-	font1.setAttribute("t", "stalker.hotkey-text");
+  addImg(
+    "hud-3",
+    "./assets/projects/stalker/3_lowResolution.jpg",
+    containerFlex1
+  );
 
-	addElement("font-header-1", container).setAttribute("t", "stalker.inventory-header");
+  addElement("font", container).setAttribute("t", "stalker.minimap");
 
-	const containerFlex2 = addElement("container-flex", container);
-	containerFlex2.style.flexDirection = "row";
-	containerFlex2.style.flexWrap = "wrap";
+  const font5 = addElement("font", container);
+  font5.className = "font-center";
+  font5.setAttribute("t", "stalker.ammo-header");
 
-	addImg("inventory-1", "./assets/projects/stalker/4_lowResolution.jpg", containerFlex2);
-	addImg("inventory-2", "./assets/projects/stalker/5_lowResolution.jpg", containerFlex2);
+  addElement("font", container).setAttribute("t", "stalker.ammo-text");
 
-	addElement("font", container).setAttribute("t", "stalker.inventory-text");
+  const font6 = addElement("font", container);
+  font6.className = "font-center";
+  font6.setAttribute("t", "stalker.hotkey-header");
 
-	addElement("container-margin", container);
+  const font1 = addElement("font", container);
+  font1.style.marginBottom = "40px";
+  font1.setAttribute("t", "stalker.hotkey-text");
 
-	setLanguage();
-	setTheme();
-}
+  addElement("font-header-1", container).setAttribute(
+    "t",
+    "stalker.inventory-header"
+  );
 
-export function Fallout() {
-	document.title = "JS | Fallout";
+  const containerFlex2 = addElement("div", container);
+  containerFlex2.className = "container-flex";
+  containerFlex2.style.flexDirection = "row";
+  containerFlex2.style.flexWrap = "wrap";
 
-	const container = createContainer();
+  addImg(
+    "inventory-1",
+    "./assets/projects/stalker/4_lowResolution.jpg",
+    containerFlex2
+  );
 
-	const header = addElement("font-header", container);
-	header.style.textAlign = "center";
-	header.setAttribute("t", "Fallout");
+  addImg(
+    "inventory-2",
+    "./assets/projects/stalker/5_lowResolution.jpg",
+    containerFlex2
+  );
 
-	addElement("font-header-1", container).setAttribute("t", "Menu (Helix | Nutscript)");
+  addElement("font", container).setAttribute("t", "stalker.inventory-text");
 
-	const containerFlex = addElement("container-flex", container);
-	containerFlex.style.flexDirection = "row";
-	containerFlex.style.flexWrap = "wrap";
+  setLanguage();
+  setTheme();
+};
 
-	addImg("menu-1", "./assets/projects/fallout/2_lowResolution.jpg", containerFlex);
-	addImg("menu-2", "./assets/projects/fallout/3_lowResolution.jpg", containerFlex);
-	addImg("menu-3", "./assets/projects/fallout/4_lowResolution.jpg", containerFlex);
+export const Fallout = () => {
+  document.title = "JS | Fallout";
 
-	addElement("font-header-1", container).setAttribute("t", "HUD");
+  const container = createContainer();
 
-	const containerFlex1 = addElement("container-flex", container);
-	containerFlex1.style.flexDirection = "row";
-	containerFlex1.style.flexWrap = "wrap";
+  const header = addElement("font", container);
+  header.className = "font-header";
+  header.style.textAlign = "center";
+  header.setAttribute("t", "Fallout");
 
-	addImg("hud-1", "./assets/projects/fallout/1_lowResolution.jpg", containerFlex1);
+  const header1 = addElement("font", container)
+  header1.className = "font-header-1";
+  header1.setAttribute("t", "Menu (Helix | Nutscript)");
 
-	addElement("container-margin", container);
+  const containerFlex = addElement("div", container);
+  containerFlex.className = "container-flex";
+  containerFlex.style.flexDirection = "row";
+  containerFlex.style.flexWrap = "wrap";
 
-	setLanguage();
-	setTheme();
-}
+  addImg(
+    "menu-1",
+    "./assets/projects/fallout/2_lowResolution.jpg",
+    containerFlex
+  );
 
-export function MW() {
-	document.title = "JS | MW";
+  addImg(
+    "menu-2",
+    "./assets/projects/fallout/3_lowResolution.jpg",
+    containerFlex
+  );
 
-	const container = createContainer();
+  addImg(
+    "menu-3",
+    "./assets/projects/fallout/4_lowResolution.jpg",
+    containerFlex
+  );
 
-	const header = addElement("font-header", container);
-	header.style.textAlign = "center";
-	header.setAttribute("t", "Call of Duty: Modern Warfare");
+  const header2 = addElement("font", container);
+  header2.className = "font-header-1";
+  header2.setAttribute("t", "HUD");
 
-	const containerFlex = addElement("container-flex", container);
-	containerFlex.style.flexDirection = "row";
-	containerFlex.style.flexWrap = "wrap";
+  const containerFlex1 = addElement("div", container);
+  containerFlex1.className = "container-flex";
+  containerFlex1.style.flexDirection = "row";
+  containerFlex1.style.flexWrap = "wrap";
 
-	addImg("mw-1", "./assets/projects/mw/1_lowResolution.jpg", containerFlex);
+  addImg(
+    "hud-1",
+    "./assets/projects/fallout/1_lowResolution.jpg",
+    containerFlex1
+  );
 
-	const font = addElement("font", container);
-	font.style.marginBottom = "40px";
-	font.setAttribute("t", "mw.text");
+  setLanguage();
+  setTheme();
+};
 
-	addElement("container-margin", container);
+export const MW = () => {
+  document.title = "JS | MW";
 
-	setLanguage();
-	setTheme();
-}
+  const container = createContainer();
 
-export function Daynight() {
-	document.title = "JS | DayNight";
+  const header = addElement("font", container);
+  header.className = "font-header";
+  header.style.textAlign = "center";
+  header.setAttribute("t", "Call of Duty: Modern Warfare");
 
-	const container = createContainer();
+  const containerFlex = addElement("div", container);
+  containerFlex.className = "container-flex";
+  containerFlex.style.flexDirection = "row";
+  containerFlex.style.flexWrap = "wrap";
 
-	const header = addElement("font-header", container);
-	header.style.textAlign = "center";
-	header.setAttribute("t", "Day & Night Trader");
+  addImg("mw-1", "./assets/projects/mw/1_lowResolution.jpg", containerFlex);
 
-	const containerFlex = addElement("container-flex", container);
-	containerFlex.style.flexDirection = "row";
-	containerFlex.style.flexWrap = "wrap";
+  const font = addElement("font", container);
+  font.style.marginBottom = "40px";
+  font.setAttribute("t", "mw.text");
 
-	addImg("daynight-1", "./assets/projects/daynight/1_lowResolution.jpg", containerFlex);
+  setLanguage();
+  setTheme();
+};
 
-	const font = addElement("font", container);
-	font.style.marginBottom = "40px";
-	font.setAttribute("t", "daynight.text");
+export const Daynight = () => {
+  document.title = "JS | DayNight";
 
-	addElement("container-margin", container);
+  const container = createContainer();
 
-	setLanguage();
-	setTheme();
-}
+  const header = addElement("font", container);
+  header.className = "font-header";
+  header.style.textAlign = "center";
+  header.setAttribute("t", "Day & Night Trader");
+
+  const containerFlex = addElement("div", container);
+  containerFlex.className = "container-flex";
+  containerFlex.style.flexDirection = "row";
+  containerFlex.style.flexWrap = "wrap";
+
+  addImg(
+    "daynight-1",
+    "./assets/projects/daynight/1_lowResolution.jpg",
+    containerFlex
+  );
+
+  const font = addElement("font", container);
+  font.style.marginBottom = "40px";
+  font.setAttribute("t", "daynight.text");
+
+  setLanguage();
+  setTheme();
+};

@@ -1,26 +1,23 @@
-body {
+html, body {
 	margin: 0;
 	background: var(--bg-color);
+	scrollbar-width: thin;
+	scrollbar-color: var(--main-color) var(--bg-color);
 }
-
 body::-webkit-scrollbar {
 	width: 8px;
 	height: 8px;
 }
-
 body::-webkit-scrollbar-track {
 	background: var(--bg-color);
 }
-
 body::-webkit-scrollbar-thumb {
 	background-color: var(--main-color);
 	border-radius: 20px; 
 }
-
 a {
 	text-decoration: none;
 }
-
 hr {
 	position: fixed;
 	display: none;
@@ -30,8 +27,7 @@ hr {
 	top: 70px;
 	width: 100%;
 }
-
-preloader {
+.preloader {
 	position: fixed;
 	display: flex;
 	align-items: center;
@@ -42,26 +38,14 @@ preloader {
 	height: 100%;
 	background: var(--bg-color);
 }
-
-container {
+.container {
 	position: absolute;
 	display: flex;
 	flex-direction: column;
-	top: 0;
-	left: 15%;
 	width: 70%;
-	height: calc(100% - 50px);
+	padding: 85px 15% 55px 15%;
 }
-
-container-margin {
-	position: relative;
-	min-height: 140px;
-	width: 1px;
-	background: black;
-	opacity: 0.0;
-}
-
-container-flex {
+.container-flex {
 	position: relative;
 	display: flex;
 	justify-content: space-around;
@@ -69,8 +53,7 @@ container-flex {
 	height: auto;
 	margin-bottom: 10px;
 }
-
-container-flex-1 {
+.project {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -84,46 +67,39 @@ container-flex-1 {
 	margin: 20px;
 	transition: box-shadow 0.1s ease-out 100ms;
 }
-
-container-flex-1:hover {
+.project:hover {
 	box-shadow: 0 0 10px 7px var(--main-color);
 }
-
-container-flex-title {
+.project-title {
 	position: relative;
 	color: var(--font-color);
 	font-family: sans-serif;
 	font-size: 40px;
 	text-align: center;
 	margin-bottom: 20px;
+	cursor: pointer;
 }
-
-container-flex-font {
+.project-font {
 	position: relative;
 	color: var(--font-color);
 	font-family: sans-serif;
 	font-size: 20px;
 	text-align: center;
 	margin: 5px;
+	cursor: pointer;
 }
-
-navbar {
+nav {
 	position: fixed;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	top: 0;
-	left: 15%;
+	justify-content: space-between;
 	width: 70%;
 	height: 80px;
+	padding: 0 15% 0 15%;
 	background: var(--navbar-color);
 }
-
-navbar-margin {
-	flex: 1 1 auto;
-}
-
-navbar-item {
+.navbar-item {
 	position: relative;
 	font-family: sans-serif;
 	font-size: 35px;
@@ -132,8 +108,10 @@ navbar-item {
 	margin-left: 5%;
 	transition: text-decoration 0.2s ease-out 100ms;
 }
-
-navbar-item::after {
+.navbar-item:first-of-type {
+	margin-left: auto;
+}
+.navbar-item::after {
 	content: "";
 	display: block;
 	width: 0px;
@@ -141,11 +119,9 @@ navbar-item::after {
 	background: var(--main-color);
 	transition: 200ms;
 }
-
-navbar-item:hover::after {
+.navbar-item:hover::after {
 	width: 100%;
 }
-
 footer {
 	position: fixed;
 	display: flex;
@@ -153,36 +129,31 @@ footer {
 	align-items: center;
 	justify-content: space-between;
 	bottom: 0;
-	left: 15%;
 	width: 70%;
 	height: 50px;
+	padding: 0 15% 0 15%;
 	background: var(--bg-color);
 }
-
-footer-left {
-	position: fixed;
+.footer-container {
+	position: relative;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 	bottom: 0;
-	left: 15%;
-	width: 70%;
+	width: 100%;
 	height: 50px;
 	background: var(--bg-color);
 }
-
-font-footer {
+.font-footer {
 	position: relative;
-	display: block;
 	color: var(--main-color);
 	font-family: sans-serif;
 	font-size: 20px;
 	text-align: justify;
 	cursor: default;
 }
-
-font-header {
+.font-header {
 	position: relative;
 	color: var(--main-color);
 	font-family: sans-serif;
@@ -191,8 +162,7 @@ font-header {
 	margin-bottom: 20px;
 	cursor: default;
 }
-
-font-header-1 {
+.font-header-1 {
 	position: relative;
 	color: var(--font-color);
 	font-family: sans-serif;
@@ -202,7 +172,6 @@ font-header-1 {
 	margin-bottom: 10px;
 	cursor: default;
 }
-
 font {
 	position: relative;
 	color: var(--font-color);
@@ -211,8 +180,7 @@ font {
 	font-size: 40px;
 	cursor: default;
 }
-
-font-center {
+.font-center {
 	position: relative;
 	color: var(--font-color);
 	font-family: sans-serif;
@@ -222,8 +190,7 @@ font-center {
 	margin-bottom: 10px;
 	cursor: default;
 }
-
-language {
+.language {
 	position: relative;
 	font-family: sans-serif;
 	text-align: center;
@@ -233,8 +200,7 @@ language {
 	font-weight: 1000;
 	cursor: pointer;
 }
-
-language::after {
+.language::after {
 	content: "";
 	display: block;
 	width: 0px;
@@ -242,21 +208,14 @@ language::after {
 	background: var(--main-color);
 	transition: 200ms;
 }
-
-language:hover::after {
+.language:hover::after {
 	width: 100%;
 }
-
-.resize {
-	flex-direction: row;
-}
-
 .preloader-img {
 	max-width: 150px;
 	max-height: 150px;
 	filter: var(--main-filter);
 }
-
 .landing {
 	position: relative;
 	max-width: 400px;
@@ -264,20 +223,17 @@ language:hover::after {
 	margin: 5%;
 	left: 0;
 }
-
 .font-link {
 	color: var(--main-color);
 	cursor: pointer;
 	display: inline-block;
 }
-
 .logo {
 	position: relative;
 	max-height: 80px;
 	cursor: pointer;
 	filter: var(--main-filter);
 }
-
 .flex-item {
 	position: relative;
 	max-width: 150px;
@@ -287,18 +243,15 @@ language:hover::after {
 	border-radius: 20%;
 	transition: box-shadow 0.1s ease-out 100ms;
 }
-
 .flex-item:hover {
 	box-shadow: 0 0 10px 7px var(--shadow-color);
 }
-
 .flex-item-1 {
 	position: relative;
 	max-width: 200px;
 	filter: var(--main-filter);
 	margin: 10px;
 }
-
 .flex-item-2 {
 	position: relative;
 	max-width: 360px;
@@ -308,11 +261,9 @@ language:hover::after {
 	cursor: pointer;
 	transition: box-shadow 0.1s ease-out 100ms;
 }
-
 .flex-item-2:hover {
 	box-shadow: 0 0 10px 7px var(--main-color);
 }
-
 .footer-item {
 	position: relative;
 	max-width: 35px;
@@ -322,11 +273,9 @@ language:hover::after {
 	border-radius:50%;
 	transition: box-shadow 0.2s ease-out 100ms;
 }
-
 .footer-item:hover {
 	box-shadow: 0 0 10px 5px var(--shadow-color);
 }
-
 .theme {
 	position: relative;
 	max-width: 40px;
@@ -337,118 +286,93 @@ language:hover::after {
 	border-radius:50%;
 	transition: box-shadow 0.2s ease-out 100ms;
 }
-
 .theme:hover {
 	box-shadow: 0 0 10px 5px var(--shadow-color);
 }
-
 @media only screen and (max-width: 1370px) {
-	font-footer {
+	.font-footer {
 		font-size: 15px;
 	}
-
 	.resize {
 		flex-direction: column;
 	}
 }
-
 @media only screen and (max-width: 1030px) {
 	hr {
 		top: 110px;
 	}
-
-	container {
-		height: calc(100% - 90px);
+	.container {
+		padding: 115px 15% 95px 15%;
 	}
-
-	container-flex-1:hover {
-		box-shadow: none;
-	}
-
-	navbar {
-		height: 120px;
-	}
-
-	navbar-item {
-		font-size: 50px;
-	}
-
-	navbar-item::after {
+	.footer-container:first-of-type {
 		display: none;
 	}
-
-	navbar-item:hover::after {
+	.project:hover {
+		box-shadow: none;
+	}
+	nav {
+		height: 120px;
+	}
+	.navbar-item {
+		font-size: 50px;
+	}
+	.navbar-item::after {
+		display: none;
+	}
+	.navbar-item:hover::after {
 		width: 0;
 	}
-
-	font-header {
+	.font-header {
 		font-size: 70px;
 	}
-
-	font-header-1 {
+	.font-header-1 {
 		font-size: 70px;
 	}
-
-	font-center {
+	.font-center {
 		font-size: 70px;
 	}
-
 	font {
 		font-size: 60px;
 	}
-
 	footer {
 		height: 90px;
 	}
-
-	footer-left {
+	.footer-left {
 		display: none;
 	}
-
-	font-footer {
+	.font-footer {
 		display: none;
 	}
-
-	language {
+	.language {
 		font-size: 40px;
 	}
-
-	language::after {
+	.language::after {
 		display: none;
 	}
-
-	language:hover::after {
+	.language:hover::after {
 		width: 0;
 	}
-
 	.flex-item:hover {
 		box-shadow: none;
 	}
-
 	.flex-item-2:hover {
 		box-shadow: none;
 	}
-
 	.footer-item:hover {
 		box-shadow: none;
 	}
-
 	.landing {
 		max-width: 650px;
 	}
-
 	.logo {
 		max-height: 120px;
 	}
-
 	.footer-item {
 		max-width: 80px;
 	}
-
 	.theme {
 		max-width: 80px;
 	}
-
 	.theme:hover {
 		box-shadow: none;
 	}

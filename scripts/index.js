@@ -1,34 +1,36 @@
+import { pages, changeContainer } from "./pages.js";
 import { Navbar, Footer, Preloader } from "./components.js";
-import { pages } from "./pages.js";
 
 window.addEventListener("load", () => {
-	Navbar();
-	Footer();
+  Navbar(changeContainer);
+  Footer();
 
-	const url = new URL(document.location);
+  const url = new URL(document.location);
 
-	if (url.search == "") {
-		history.pushState({page: "home"}, "", "?page=home");
-		pages["home"]();
-	} else {
-		pages[url.search.substring(6)]();
-	}
+  if (url.search == "") {
+    history.pushState({ page: "home" }, "", "?page=home");
+    pages["home"]();
+  } else {
+    pages[url.search.substring(6)]();
+  }
 
-	if (!localStorage.getItem("language")) {
-		localStorage.setItem("language", "En");
-	}
+  if (!localStorage.getItem("language")) {
+    localStorage.setItem("language", "En");
+  }
 
-	if (!localStorage.getItem("theme")) {
-		localStorage.setItem("theme", "Off");
-	}
+  if (!localStorage.getItem("theme")) {
+    localStorage.setItem("theme", "Off");
+  }
 
-	Preloader();
+  Preloader();
 });
 
-window.addEventListener("scroll", () => 
-	document.querySelector("hr").style.display = window.scrollY != 0 ? "block" : "none"
-);
+window.addEventListener("scroll", () => {
+  const hr = document.querySelector("hr");
 
-window.addEventListener("popstate", () => 
-	pages[history.state.page]()
-);
+  hr.style.display = window.scrollY != 0 ? "block" : "none";
+});
+
+window.addEventListener("popstate", () => pages[history.state.page]());
+
+dispatchEvent(new Event("load"));
