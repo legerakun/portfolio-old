@@ -1,6 +1,6 @@
 # Portfolio JavaScript
 
-![landing](https://raw.githubusercontent.com/legerakun/portfolio-js/main/readme.png)
+![landing](https://raw.githubusercontent.com/legerakun/portfolio-js/assets/main/readme.png)
 
 ## Info
 
