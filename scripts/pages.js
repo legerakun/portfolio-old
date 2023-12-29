@@ -2,7 +2,7 @@ import { Stalker, Fallout, MW, Daynight } from "./projects.js";
 import { createContainer, addElement, addItem, setLanguage, setTheme }
   from "./utils.js";
 
-const skills = await fetch("../data/skills.json")
+const skills = await fetch("./data/skills.json")
   .then((r) => r.json())
   .then((d) => d);
 

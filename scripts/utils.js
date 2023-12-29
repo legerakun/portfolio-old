@@ -1,8 +1,8 @@
-const locales = await fetch("../data/locales.json")
+const locales = await fetch("./data/locales.json")
   .then((r) => r.json())
   .then((d) => d);
 
-const themes = await fetch("../data/themes.json")
+const themes = await fetch("./data/themes.json")
   .then((r) => r.json())
   .then((d) => d);
 
