@@ -131,7 +131,7 @@ export const Preloader = () => {
     const opacityInterval1 = setInterval(() => {
       const preloader = document.querySelector(".preloader");
 
-      if (Number(preloader.style.opacity) == 0.0) {
+      if (Number(preloader.style.opacity) === 0.0) {
         preloader.remove();
         clearInterval(opacityInterval1);
       } else {

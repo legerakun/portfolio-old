@@ -7,7 +7,7 @@ window.addEventListener("load", () => {
 
   const url = new URL(document.location);
 
-  if (url.search == "") {
+  if (url.search === "") {
     history.pushState({ page: "home" }, "", "?page=home");
     pages["home"]();
   } else {
@@ -28,7 +28,7 @@ window.addEventListener("load", () => {
 window.addEventListener("scroll", () => {
   const hr = document.querySelector("hr");
 
-  hr.style.display = window.scrollY != 0 ? "block" : "none";
+  hr.style.display = window.scrollY !== 0 ? "block" : "none";
 });
 
 window.addEventListener("popstate", () => pages[history.state.page]());

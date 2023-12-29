@@ -49,7 +49,7 @@ export const Home = () => {
 
   const landing = addElement("img", containerRight);
   landing.className = "landing";
-  landing.src = localStorage.getItem("theme") == "On"
+  landing.src = localStorage.getItem("theme") === "On"
 		? "./assets/landing-on.svg"
 		: "./assets/landing-off.svg";
 

@@ -12,13 +12,13 @@ const findValue = (json, value) =>
   value.split(".").reduce((newValue, key) => newValue[key], json);
 
 const paintThemeButton = () =>
-  localStorage.getItem("theme") == "On"
+  localStorage.getItem("theme") === "On"
     ? "./assets/theme-on.svg"
     : "./assets/theme-off.svg";
 
 const setTranslation = (key) =>
   findValue(
-    localStorage.getItem("language") == "En" ? locales.en : locales.ru,
+    localStorage.getItem("language") === "En" ? locales.en : locales.ru,
     key
   ) ?? key;
 
@@ -39,7 +39,7 @@ export const addLanguage = (container, lang) => {
   button.innerHTML = lang;
   button.classList.add(lang);
   button.addEventListener("click", () => {
-    if (localStorage.getItem("language") == lang) return;
+    if (localStorage.getItem("language") === lang) return;
 
     localStorage.setItem("language", lang);
     setLanguage();
@@ -52,7 +52,7 @@ export const addTheme = (container) => {
   img.className = "theme";
   img.src = paintThemeButton();
   img.addEventListener("click", () => {
-    if (localStorage.getItem("theme") == "On") {
+    if (localStorage.getItem("theme") === "On") {
       localStorage.setItem("theme", "Off");
     } else {
       localStorage.setItem("theme", "On");
@@ -122,19 +122,19 @@ export const paintFooter = () => {
   const fontColor =
     document.documentElement.style.getPropertyValue("--font-color");
 
-  en.style.color = localStorage.getItem("language") == "En" 
+  en.style.color = localStorage.getItem("language") === "En" 
 		? mainColor 
 		: fontColor;
 
-  ru.style.color = localStorage.getItem("language") == "En" 
+  ru.style.color = localStorage.getItem("language") === "En" 
 		? fontColor 
 		: mainColor;
 };
 
 export const setTheme = () => {
   const url = new URL(document.location);
-  const theme = localStorage.getItem("theme") == "On" ? themes.on : themes.off;
-  const img = localStorage.getItem("theme") == "On"
+  const theme = localStorage.getItem("theme") === "On" ? themes.on : themes.off;
+  const img = localStorage.getItem("theme") === "On"
     ? "./assets/landing-on.svg"
     : "./assets/landing-off.svg";
 
