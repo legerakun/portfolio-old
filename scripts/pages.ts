@@ -1,31 +1,55 @@
-import { Stalker, Fallout, MW, Daynight } from "./projects.js";
-import { createContainer, addElement, addItem, setLanguage, setTheme }
-  from "./utils.js";
+import { 
+  Stalker, 
+  Fallout, 
+  MW, 
+  Daynight 
+} from "./projects.ts";
+import {
+  createContainer,
+  addElement,
+  addItem,
+  setLanguage,
+  setTheme,
+} from "./utils.ts";
 
-const skills = await fetch("./data/skills.json")
+interface Skills {
+  skill: string;
+}
+
+const skills: Skills = await fetch("./data/skills.json")
   .then((r) => r.json())
   .then((d) => d);
 
-export const changeContainer = (page) => {
+export const setPage = (page: string): void => {
+  const fn = pages.get(page);
+
+  if (fn === undefined) return;
+
+  fn();
+};
+
+export const changeContainer = (page: string): void => {
   const intervalContainer = setInterval(() => {
-    const container = document.querySelector(".container");
+    const container = <HTMLElement>document.querySelector(".container");
+
+    if (container === null) return;
 
     const containerOpacity = Number(container.style.opacity);
 
     if (containerOpacity > 0.0) {
-      container.style.opacity = containerOpacity - 0.03;
+      container.style.opacity = (containerOpacity - 0.03).toString();
     } else {
       clearInterval(intervalContainer);
     }
   }, 10);
 
   setTimeout(() => {
-    pages[page]();
+    setPage(page);
     setLanguage();
   }, 300);
 };
 
-export const Home = () => {
+export const Home = (): void => {
   document.title = "JS | Home";
 
   const container = createContainer();
@@ -47,17 +71,17 @@ export const Home = () => {
 
   addElement("font", containerLeft).setAttribute("t", "home.text");
 
-  const landing = addElement("img", containerRight);
+  const landing = <HTMLImageElement>addElement("img", containerRight);
   landing.className = "landing";
   landing.src = localStorage.getItem("theme") === "On"
-		? "./assets/landing-on.svg"
-		: "./assets/landing-off.svg";
+    ? "./assets/landing-on.svg"
+    : "./assets/landing-off.svg";
 
   setLanguage();
   setTheme();
 };
 
-export const About = () => {
+export const About = (): void => {
   document.title = "JS | About";
 
   const container = createContainer();
@@ -81,13 +105,15 @@ export const About = () => {
   containerFlex.style.flexDirection = "row";
   containerFlex.style.flexWrap = "wrap";
 
-  Object.entries(skills).forEach(([alt, image]) => addItem(alt, image));
+  Object.entries(skills).forEach(([alt, image]) =>
+    addItem(<string>alt, <string>image)
+  );
 
   setLanguage();
   setTheme();
 };
 
-export const Projects = () => {
+export const Projects = (): void => {
   document.title = "JS | Projects";
 
   const container = createContainer();
@@ -102,25 +128,31 @@ export const Projects = () => {
   containerFlex.style.flexDirection = "row";
   containerFlex.style.flexWrap = "wrap";
 
-  const addProject = (alt, image, title, translationKey, navpage) => {
-    const container = document.querySelector(".container-flex");
-  
+  const addProject = (
+    alt: string,
+    image: string,
+    title: string,
+    translationKey: string,
+    navpage: string
+  ): void => {
+    const container = <HTMLElement>document.querySelector(".container-flex");
+
     const panel = addElement("div", container);
     panel.className = "project";
     panel.addEventListener("click", () => {
       history.pushState({ page: navpage }, "", "?page=" + navpage);
       changeContainer(navpage);
     });
-  
-    const img = addElement("img", panel);
+
+    const img = <HTMLImageElement>addElement("img", panel);
     img.className = "flex-item-1";
     img.alt = alt;
     img.src = image;
-  
+
     const header = addElement("font", panel);
     header.className = "project-title";
     header.innerHTML = title;
-  
+
     const font = addElement("font", panel);
     font.className = "project-font";
     font.setAttribute("t", translationKey);
@@ -162,12 +194,11 @@ export const Projects = () => {
   setTheme();
 };
 
-export const pages = {
-  home: Home,
-  about: About,
-  projects: Projects,
-  stalker: Stalker,
-  fallout: Fallout,
-  mw: MW,
-  daynight: Daynight,
-};
+const pages: Map<string, Function> = new Map();
+pages.set("home", Home);
+pages.set("about", About);
+pages.set("projects", Projects);
+pages.set("stalker", Stalker);
+pages.set("fallout", Fallout);
+pages.set("mw", MW);
+pages.set("daynight", Daynight);

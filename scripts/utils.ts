@@ -1,39 +1,57 @@
-const locales = await fetch("./data/locales.json")
+interface Locales {
+  en: Record<string, Record<string, string>>;
+  ru: Record<string, Record<string, string>>;
+}
+
+interface Themes {
+  on: Record<string, string>;
+  off: Record<string, string>;
+}
+
+const locales: Locales = await fetch("./data/locales.json")
   .then((r) => r.json())
   .then((d) => d);
 
-const themes = await fetch("./data/themes.json")
+const themes: Themes = await fetch("./data/themes.json")
   .then((r) => r.json())
   .then((d) => d);
 
-const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+const clamp = (num: number, min: number, max: number): number =>
+  Math.min(Math.max(num, min), max);
 
-const findValue = (json, value) =>
-  value.split(".").reduce((newValue, key) => newValue[key], json);
+const findValue = (json: Record<string, any>, value: string): string => {
+  const split = value.split(".");
 
-const paintThemeButton = () =>
+  const key = split.length === 1 ? json[split[0]] : json[split[0]][split[1]];
+
+  return key === undefined ? value : key;
+};
+
+const paintThemeButton = (): string =>
   localStorage.getItem("theme") === "On"
     ? "./assets/theme-on.svg"
     : "./assets/theme-off.svg";
 
-const setTranslation = (key) =>
+const setTranslation = (key: string): string =>
   findValue(
     localStorage.getItem("language") === "En" ? locales.en : locales.ru,
     key
   ) ?? key;
 
-export const setLanguage = () =>
+export const setLanguage = (): void =>
   document
-    .querySelectorAll("[t]")
-    .forEach(
-      (element) =>
-        (element.innerHTML = setTranslation(element.getAttribute("t")))
+    .querySelectorAll<HTMLElement>("[t]")
+    .forEach((element) =>
+      (element.innerHTML = setTranslation(<string>element.getAttribute("t")))
     );
 
-export const addElement = (element, parent) =>
+export const addElement = (
+  element: string,
+  parent: HTMLElement
+): HTMLElement | HTMLImageElement =>
   parent.appendChild(document.createElement(element));
 
-export const addLanguage = (container, lang) => {
+export const addLanguage = (container: HTMLElement, lang: string): void => {
   const button = addElement("div", container);
   button.className = "language";
   button.innerHTML = lang;
@@ -47,8 +65,8 @@ export const addLanguage = (container, lang) => {
   });
 };
 
-export const addTheme = (container) => {
-  const img = addElement("img", container);
+export const addTheme = (container: HTMLElement): void => {
+  const img = <HTMLImageElement>addElement("img", container);
   img.className = "theme";
   img.src = paintThemeButton();
   img.addEventListener("click", () => {
@@ -63,17 +81,21 @@ export const addTheme = (container) => {
   });
 };
 
-export const addItem = (alt, src) => {
-  const container = document.querySelector(".container-flex");
+export const addItem = (alt: string, src: string): void => {
+  const container = <HTMLElement>document.querySelector(".container-flex");
 
-  const skill = addElement("img", container);
+  const skill = <HTMLImageElement>addElement("img", container);
   skill.className = "flex-item";
   skill.alt = alt;
   skill.src = src;
 };
 
-export const addImg = (alt, src, container) => {
-  const img = addElement("img", container);
+export const addImg = (
+  alt: string,
+  src: string,
+  container: HTMLElement
+): void => {
+  const img = <HTMLImageElement>addElement("img", container);
   img.className = "flex-item-2";
   img.alt = alt;
   img.src = src;
@@ -82,7 +104,7 @@ export const addImg = (alt, src, container) => {
   );
 };
 
-export const createContainer = () => {
+export const createContainer = (): HTMLElement => {
   const oldContainer = document.querySelector(".container");
 
   if (oldContainer !== null) oldContainer.remove();
@@ -92,28 +114,38 @@ export const createContainer = () => {
   container.style.opacity = "0.0";
 
   const intervalContainer = setInterval(() => {
-    const container = document.querySelector(".container");
+    const container = <HTMLElement>document.querySelector(".container");
+
+    if (container === null) return;
 
     if (Number(container.style.opacity) < 1.0) {
       container.style.opacity = clamp(
         Number(container.style.opacity) + 0.03,
         0.0,
         1.0
-      );
+      ).toString();
     } else {
       clearInterval(intervalContainer);
     }
   }, 10);
 
-  document.querySelector("nav").before(container);
+  const nav = document.querySelector("nav");
+
+  if (nav !== null) {
+    nav.before(container);
+  }
 
   return container;
 };
 
-export const paintFooter = () => {
-  const ru = document.querySelector(".Ru");
-  const en = document.querySelector(".En");
-  const theme = document.querySelector(".theme");
+export const paintFooter = (): void => {
+  const ru = <HTMLElement>document.querySelector(".Ru");
+  const en = <HTMLElement>document.querySelector(".En");
+  const theme = <HTMLImageElement>document.querySelector(".theme");
+
+  if (ru === null) return;
+  if (en === null) return;
+  if (theme === null) return;
 
   theme.src = paintThemeButton();
 
@@ -123,23 +155,28 @@ export const paintFooter = () => {
     document.documentElement.style.getPropertyValue("--font-color");
 
   en.style.color = localStorage.getItem("language") === "En" 
-		? mainColor 
-		: fontColor;
+    ? mainColor 
+    : fontColor;
 
   ru.style.color = localStorage.getItem("language") === "En" 
-		? fontColor 
-		: mainColor;
+    ? fontColor 
+    : mainColor;
 };
 
-export const setTheme = () => {
-  const url = new URL(document.location);
-  const theme = localStorage.getItem("theme") === "On" ? themes.on : themes.off;
+export const setTheme = (): void => {
+  const url = new URL(document.location.href);
+  const theme = localStorage.getItem("theme") === "On" 
+    ? themes.on 
+    : themes.off;
   const img = localStorage.getItem("theme") === "On"
     ? "./assets/landing-on.svg"
     : "./assets/landing-off.svg";
 
   if (url.search.substring(6) === "home") {
-    const landing = document.querySelector(".landing");
+    const landing = <HTMLImageElement>document.querySelector(".landing");
+
+    if (landing === null) return;
+
     landing.src = img;
   }
 

@@ -1,17 +1,17 @@
-import { pages, changeContainer } from "./pages.js";
-import { Navbar, Footer, Preloader } from "./components.js";
+import { setPage, changeContainer } from "./pages.ts";
+import { Navbar, Footer, Preloader } from "./components.ts";
 
 window.addEventListener("load", () => {
   Navbar(changeContainer);
   Footer();
 
-  const url = new URL(document.location);
+  const url = new URL(document.location.href);
 
   if (url.search === "") {
+    setPage("home");
     history.pushState({ page: "home" }, "", "?page=home");
-    pages["home"]();
   } else {
-    pages[url.search.substring(6)]();
+    setPage(url.search.substring(6));
   }
 
   if (!localStorage.getItem("language")) {
@@ -28,9 +28,11 @@ window.addEventListener("load", () => {
 window.addEventListener("scroll", () => {
   const hr = document.querySelector("hr");
 
+  if (hr === null) return;
+
   hr.style.display = window.scrollY !== 0 ? "block" : "none";
 });
 
-window.addEventListener("popstate", () => pages[history.state.page]());
+window.addEventListener("popstate", () => setPage(history.state.page));
 
-dispatchEvent(new Event("load"));
+window.dispatchEvent(new Event("load"));
