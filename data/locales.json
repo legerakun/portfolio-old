@@ -2,8 +2,8 @@
 	"en": {
 		"home": {
 			"navbar": "Home",
-			"header": "Hi, welcome to my JavaScript portfolio!",
-			"text": "This is a single-page website created from scratch. Here I'm testing some opportunities in HTML, CSS, and JavaScript. Feel free to use the <a href='https://github.com/legerakun/portfolio-js' target='_blank' class='font-link'>source code</a>."
+			"header": "Hi, welcome to my TypeScript portfolio!",
+			"text": "This is a single-page website created from scratch. Here I'm testing some opportunities in HTML, CSS, and TypeScript. Feel free to use the <a href='https://github.com/legerakun/portfolio-js/tree/ts' target='_blank' class='font-link'>source code</a>."
 		},
 		"about": {
 			"navbar": "About",
@@ -42,8 +42,8 @@
 	"ru": {
 		"home": {
 			"navbar": "Главная",
-			"header": "Привет, добро пожаловать в мое JavaScript портфолио!",
-			"text": "Это одностраничный сайт созданный с нуля. Здесь я тестирую различные возможности HTML, CSS и JavaScript. Здесь вы можете найти <a href='https://github.com/legerakun/portfolio-js' target='_blank' class='font-link'>исходный код</a>."
+			"header": "Привет, добро пожаловать в мое TypeScript портфолио!",
+			"text": "Это одностраничный сайт созданный с нуля. Здесь я тестирую различные возможности HTML, CSS и TypeScript. Здесь вы можете найти <a href='https://github.com/legerakun/portfolio-js/tree/ts' target='_blank' class='font-link'>исходный код</a>."
 		},
 		"about": {
 			"navbar": "Автор",

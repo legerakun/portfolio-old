@@ -164,21 +164,9 @@ export const paintFooter = (): void => {
 };
 
 export const setTheme = (): void => {
-  const url = new URL(document.location.href);
   const theme = localStorage.getItem("theme") === "On" 
     ? themes.on 
     : themes.off;
-  const img = localStorage.getItem("theme") === "On"
-    ? "./assets/landing-on.svg"
-    : "./assets/landing-off.svg";
-
-  if (url.search.substring(6) === "home") {
-    const landing = <HTMLImageElement>document.querySelector(".landing");
-
-    if (landing === null) return;
-
-    landing.src = img;
-  }
 
   document.documentElement.style.setProperty(
     "--main-color",

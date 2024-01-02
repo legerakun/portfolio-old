@@ -50,7 +50,7 @@ export const changeContainer = (page: string): void => {
 };
 
 export const Home = (): void => {
-  document.title = "JS | Home";
+  document.title = "TS | Home";
 
   const container = createContainer();
 
@@ -73,16 +73,14 @@ export const Home = (): void => {
 
   const landing = <HTMLImageElement>addElement("img", containerRight);
   landing.className = "landing";
-  landing.src = localStorage.getItem("theme") === "On"
-    ? "./assets/landing-on.svg"
-    : "./assets/landing-off.svg";
+  landing.src = "./assets/landing.svg";
 
   setLanguage();
   setTheme();
 };
 
 export const About = (): void => {
-  document.title = "JS | About";
+  document.title = "TS | About";
 
   const container = createContainer();
 
@@ -98,6 +96,7 @@ export const About = (): void => {
   const aboutHeader1 = addElement("font", container);
   aboutHeader1.className = "font-header";
   aboutHeader1.style.textAlign = "center";
+  aboutHeader1.style.marginTop = "40px";
   aboutHeader1.setAttribute("t", "about.skillset");
 
   const containerFlex = addElement("div", container);
@@ -114,7 +113,7 @@ export const About = (): void => {
 };
 
 export const Projects = (): void => {
-  document.title = "JS | Projects";
+  document.title = "TS | Projects";
 
   const container = createContainer();
 

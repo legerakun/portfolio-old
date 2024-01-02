@@ -2,7 +2,7 @@ import { createContainer, addElement, addImg, setLanguage, setTheme }
   from "./utils.js";
 
 export const Stalker = () => {
-  document.title = "JS | STALKER";
+  document.title = "TS | STALKER";
 
   const container = createContainer();
 
@@ -148,7 +148,7 @@ export const Stalker = () => {
 };
 
 export const Fallout = () => {
-  document.title = "JS | Fallout";
+  document.title = "TS | Fallout";
 
   const container = createContainer();
 
@@ -204,7 +204,7 @@ export const Fallout = () => {
 };
 
 export const MW = () => {
-  document.title = "JS | MW";
+  document.title = "TS | MW";
 
   const container = createContainer();
 
@@ -229,7 +229,7 @@ export const MW = () => {
 };
 
 export const Daynight = () => {
-  document.title = "JS | DayNight";
+  document.title = "TS | DayNight";
 
   const container = createContainer();
 
