@@ -1,10 +1,12 @@
-# Portfolio JavaScript
+# Portfolio 
 
 ![landing](https://raw.githubusercontent.com/legerakun/portfolio-js/main/assets/readme.png)
 
 ## Info
 
 This website was created for publishing my different projects and was built using HTML, CSS, JavaScript, [vite](https://vitejs.dev/) and [Github Pages](https://pages.github.com/).
+
+You can check the TypeScript version of this website on **ts** branch.
 
 ## Installation
 
