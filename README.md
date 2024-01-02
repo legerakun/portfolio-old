@@ -1,6 +1,6 @@
 # Portfolio 
 
-![landing](https://raw.githubusercontent.com/legerakun/portfolio-js/main/assets/readme.png)
+![landing](https://raw.githubusercontent.com/legerakun/portfolio/main/assets/readme.png)
 
 ## Info
 
@@ -17,13 +17,13 @@ When the *vite* is installed, follow these steps:
 1. Clone the repository using the following command:
    
 ```
-git clone https://github.com/legerakun/portfolio-js
+git clone https://github.com/legerakun/portfolio
 ```
 
 2. Navigate to the project directory:
 
 ```
-cd portfolio-js
+cd portfolio
 ```
 
 3. Setup *vite*:
