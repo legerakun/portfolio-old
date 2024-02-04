@@ -2,7 +2,7 @@ import { createContainer, addElement, addImg, setLanguage, setTheme }
   from "./utils.js";
 
 export const Stalker = () => {
-  document.title = "JS | STALKER";
+  document.title = "TS | STALKER";
 
   const container = createContainer();
 
@@ -148,7 +148,7 @@ export const Stalker = () => {
 };
 
 export const Fallout = () => {
-  document.title = "JS | Fallout";
+  document.title = "TS | Fallout";
 
   const container = createContainer();
 
@@ -204,7 +204,7 @@ export const Fallout = () => {
 };
 
 export const MW = () => {
-  document.title = "JS | MW";
+  document.title = "TS | MW";
 
   const container = createContainer();
 
@@ -229,7 +229,7 @@ export const MW = () => {
 };
 
 export const Daynight = () => {
-  document.title = "JS | DayNight";
+  document.title = "TS | DayNight";
 
   const container = createContainer();
 
@@ -252,6 +252,41 @@ export const Daynight = () => {
   const font = addElement("font", container);
   font.style.marginBottom = "40px";
   font.setAttribute("t", "daynight.text");
+
+  setLanguage();
+  setTheme();
+};
+
+export const ReactMarket = () => {
+  document.title = "TS | React Market";
+
+  const container = createContainer();
+
+  const header = addElement("font", container);
+  header.className = "font-header";
+  header.style.textAlign = "center";
+  header.setAttribute("t", "React Market");
+
+  const containerFlex = addElement("div", container);
+  containerFlex.className = "container-flex";
+  containerFlex.style.flexDirection = "row";
+  containerFlex.style.flexWrap = "wrap";
+
+  addImg(
+    "portfolio-1",
+    "./assets/projects/react-market/1_lowResolution.png",
+    containerFlex, 
+    true
+  );
+
+  const link = addElement("font", container);
+  link.style.marginBottom = "40px";
+  link.style.textAlign = "center";
+  link.setAttribute("t", "react-market.link");
+
+  const font = addElement("font", container);
+  font.style.marginBottom = "40px";
+  font.setAttribute("t", "react-market.text");
 
   setLanguage();
   setTheme();

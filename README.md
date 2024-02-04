@@ -1,12 +1,12 @@
-# Portfolio 
+# Portfolio
 
-![landing](https://raw.githubusercontent.com/legerakun/portfolio/main/assets/readme.png)
+![landing](https://raw.githubusercontent.com/legerakun/portfolio/ts/assets/readme.png)
 
 ## Info
 
-This website was created for publishing my different projects and was built using HTML, CSS, JavaScript, [vite](https://vitejs.dev/) and [Github Pages](https://pages.github.com/).
+This website was created for publishing my different projects and was built using HTML, CSS, TypeScript, [vite](https://vitejs.dev/) and [Github Pages](https://pages.github.com/).
 
-You can check the TypeScript version of this website on **ts** branch.
+You can check the JavaScript version of this website on **main** branch.
 
 ## Installation
 
@@ -17,7 +17,7 @@ When the *vite* is installed, follow these steps:
 1. Clone the repository using the following command:
    
 ```
-git clone https://github.com/legerakun/portfolio
+git clone -b ts https://github.com/legerakun/portfolio
 ```
 
 2. Navigate to the project directory:
@@ -26,17 +26,16 @@ git clone https://github.com/legerakun/portfolio
 cd portfolio
 ```
 
-3. Setup *vite*:
+3. Setup *vite*
 
 ```
 npm install
 ```
 
-4. Start local *vite* server:
+4. Start local *vite* server
 
 ```
 npm run dev
 ```
 
 5. Open your browser and visit local website page.
-
