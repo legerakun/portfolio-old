@@ -4,8 +4,6 @@ import { Navbar, Footer, Preloader } from "./components.ts";
 const resize = (): void => {
   const url = new URL(document.location.href);
 
-  console.log(url.search === "?page=home", window.innerWidth)
-
   if (url.search === "?page=home") {
     const container = <HTMLElement>document.querySelector(".container-flex");
   
