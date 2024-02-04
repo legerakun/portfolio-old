@@ -6,8 +6,6 @@
 
 This website was created for publishing my different projects and was built using HTML, CSS, TypeScript, [vite](https://vitejs.dev/) and [Github Pages](https://pages.github.com/).
 
-You can check the JavaScript version of this website on **main** branch.
-
 ## Installation
 
 To run this project locally, you need a [vite](https://vitejs.dev/).
@@ -17,7 +15,7 @@ When the *vite* is installed, follow these steps:
 1. Clone the repository using the following command:
    
 ```
-git clone -b ts https://github.com/legerakun/portfolio
+git clone https://github.com/legerakun/portfolio
 ```
 
 2. Navigate to the project directory:
