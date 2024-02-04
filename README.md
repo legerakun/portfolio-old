@@ -1,6 +1,6 @@
 # Portfolio
 
-![landing](https://raw.githubusercontent.com/legerakun/portfolio/ts/assets/readme.png)
+![landing](https://raw.githubusercontent.com/legerakun/portfolio/master/assets/readme.png)
 
 ## Info
 
