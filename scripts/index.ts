@@ -9,8 +9,6 @@ const resize = (): void => {
   
     if (container === null) return;
 
-    console.log("a");
-
     container.style.flexDirection = window.innerWidth <= 1030
       ? "column"
       : "row";
