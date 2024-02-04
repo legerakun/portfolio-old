@@ -96,12 +96,15 @@ export const addItem = (alt: string, src: string): void => {
 export const addImg = (
   alt: string,
   src: string,
-  container: HTMLElement
+  container: HTMLElement,
+  png: boolean = false,
 ): void => {
+  const type = png ? ".png" : ".jpg";
+
   const button = <HTMLElement>addElement("button", container);
   button.className = "flex-item-2-button";
   button.addEventListener("click", () =>
-    window.open(src.substring(0, src.length - 18) + ".jpg", "_blank")
+    window.open(src.substring(0, src.length - 18) + type, "_blank")
   );
 
   const img = <HTMLImageElement>addElement("img", button);
