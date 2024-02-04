@@ -1,12 +1,12 @@
 interface Locales {
   en: Record<string, Record<string, string>>;
   ru: Record<string, Record<string, string>>;
-}
+};
 
 interface Themes {
   on: Record<string, string>;
   off: Record<string, string>;
-}
+};
 
 const locales: Locales = await fetch("./data/locales.json")
   .then((r) => r.json())
@@ -52,7 +52,7 @@ export const addElement = (
   parent.appendChild(document.createElement(element));
 
 export const addLanguage = (container: HTMLElement, lang: string): void => {
-  const button = addElement("div", container);
+  const button = addElement("button", container);
   button.className = "language";
   button.innerHTML = lang;
   button.classList.add(lang);
@@ -66,10 +66,9 @@ export const addLanguage = (container: HTMLElement, lang: string): void => {
 };
 
 export const addTheme = (container: HTMLElement): void => {
-  const img = <HTMLImageElement>addElement("img", container);
-  img.className = "theme";
-  img.src = paintThemeButton();
-  img.addEventListener("click", () => {
+  const button = <HTMLElement>addElement("button", container);
+  button.className = "theme-button";
+  button.addEventListener("click", () => {
     if (localStorage.getItem("theme") === "On") {
       localStorage.setItem("theme", "Off");
     } else {
@@ -79,6 +78,10 @@ export const addTheme = (container: HTMLElement): void => {
     setTheme();
     paintFooter();
   });
+
+  const img = <HTMLImageElement>addElement("img", button);
+  img.className = "theme";
+  img.src = paintThemeButton();
 };
 
 export const addItem = (alt: string, src: string): void => {
@@ -95,13 +98,16 @@ export const addImg = (
   src: string,
   container: HTMLElement
 ): void => {
-  const img = <HTMLImageElement>addElement("img", container);
+  const button = <HTMLElement>addElement("button", container);
+  button.className = "flex-item-2-button";
+  button.addEventListener("click", () =>
+    window.open(src.substring(0, src.length - 18) + ".jpg", "_blank")
+  );
+
+  const img = <HTMLImageElement>addElement("img", button);
   img.className = "flex-item-2";
   img.alt = alt;
   img.src = src;
-  img.addEventListener("click", () =>
-    window.open(src.substring(0, src.length - 18) + ".jpg", "_blank")
-  );
 };
 
 export const createContainer = (): HTMLElement => {

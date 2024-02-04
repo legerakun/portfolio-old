@@ -22,7 +22,7 @@ export const Navbar = (changeContainer: Function): void => {
     translation: string,
     page: string
   ): HTMLElement | HTMLImageElement => {
-    const item = addElement("span", navbar);
+    const item = addElement("button", navbar);
     item.className = "navbar-item";
     item.setAttribute("t", translation);
     item.addEventListener("click", () => {
@@ -32,14 +32,19 @@ export const Navbar = (changeContainer: Function): void => {
     return item;
   };
 
-  const logo = <HTMLImageElement>addElement("img", navbar);
-  logo.className = "logo";
-  logo.src = "./assets/skills/skill-javascript.svg";
-  logo.addEventListener("click", () => {
+  const logoButton = <HTMLElement>addElement("button", navbar);
+  logoButton.className = "logo-button";
+  logoButton.addEventListener("click", () => {
     listener("home");
   });
 
-  createNavbarItem("home.navbar", "home");
+  const logo = <HTMLImageElement>addElement("img", logoButton);
+  logo.className = "logo";
+  logo.src = "./assets/skills/skill-javascript.svg";
+
+  const firstButton = createNavbarItem("home.navbar", "home");
+  firstButton.style.marginLeft = "auto";
+
   createNavbarItem("about.navbar", "about");
   createNavbarItem("projects.navbar", "projects");
 };
@@ -62,21 +67,30 @@ export const Footer = (): void => {
   footerCenter.style.position = "relative";
   footerCenter.style.left = "0";
 
-  const linkGithub = <HTMLImageElement>addElement("img", footerCenter);
+  const linkGithubButton = <HTMLElement>addElement("button", footerCenter);
+  linkGithubButton.className = "footer-button";
+
+  const linkGithub = <HTMLImageElement>addElement("img", linkGithubButton);
   linkGithub.className = "footer-item";
   linkGithub.src = "./assets/logo-github.svg";
   linkGithub.addEventListener("click", () =>
     window.open("https://github.com/legerakun", "_blank")
   );
 
-  const linkDiscord = <HTMLImageElement>addElement("img", footerCenter);
+  const linkDiscordButton = <HTMLElement>addElement("button", footerCenter);
+  linkDiscordButton.className = "footer-button";
+
+  const linkDiscord = <HTMLImageElement>addElement("img", linkDiscordButton);
   linkDiscord.className = "footer-item";
   linkDiscord.src = "./assets/logo-discord.svg";
   linkDiscord.addEventListener("click", () =>
     window.open("https://discord.com/users/153491549995401216", "_blank")
   );
 
-  const linkSteam = <HTMLImageElement>addElement("img", footerCenter);
+  const linkSteamButton = <HTMLElement>addElement("button", footerCenter);
+  linkSteamButton.className = "footer-button";
+
+  const linkSteam = <HTMLImageElement>addElement("img", linkSteamButton);
   linkSteam.className = "footer-item";
   linkSteam.src = "./assets/logo-steam.svg";
   linkSteam.addEventListener("click", () =>
