@@ -2,7 +2,8 @@ import {
   Stalker, 
   Fallout, 
   MW, 
-  Daynight 
+  Daynight, 
+  ReactMarket
 } from "./projects.ts";
 import {
   createContainer,
@@ -112,78 +113,100 @@ export const About = (): void => {
   setTheme();
 };
 
+const addProject = (
+  container: HTMLElement,
+  alt: string,
+  image: string,
+  title: string,
+  translationKey: string,
+  navpage: string
+): void => {
+  const panel = addElement("button", container);
+  panel.className = "project";
+  panel.addEventListener("click", () => {
+    history.pushState({ page: navpage }, "", "?page=" + navpage);
+    changeContainer(navpage);
+  });
+
+  const img = <HTMLImageElement>addElement("img", panel);
+  img.className = "flex-item-1";
+  img.alt = alt;
+  img.src = image + "logo.svg";
+
+  const header = addElement("font", panel);
+  header.className = "project-title";
+  header.innerHTML = title;
+
+  const font = addElement("font", panel);
+  font.className = "project-font";
+  font.setAttribute("t", translationKey);
+};
+
 export const Projects = (): void => {
   document.title = "TS | Projects";
 
   const container = createContainer();
 
-  const projectsHeader = addElement("font", container);
-  projectsHeader.className = "font-header";
-  projectsHeader.setAttribute("t", "Garry's Mod");
-  projectsHeader.style.textAlign = "center";
+  const projectsWeb = addElement("font", container);
+  projectsWeb.className = "font-header";
+  projectsWeb.setAttribute("t", "Web");
+  projectsWeb.style.textAlign = "center";
 
-  const containerFlex = addElement("div", container);
-  containerFlex.className = "container-flex";
-  containerFlex.style.flexDirection = "row";
-  containerFlex.style.flexWrap = "wrap";
-
-  const addProject = (
-    alt: string,
-    image: string,
-    title: string,
-    translationKey: string,
-    navpage: string
-  ): void => {
-    const container = <HTMLElement>document.querySelector(".container-flex");
-
-    const panel = addElement("div", container);
-    panel.className = "project";
-    panel.addEventListener("click", () => {
-      history.pushState({ page: navpage }, "", "?page=" + navpage);
-      changeContainer(navpage);
-    });
-
-    const img = <HTMLImageElement>addElement("img", panel);
-    img.className = "flex-item-1";
-    img.alt = alt;
-    img.src = image;
-
-    const header = addElement("font", panel);
-    header.className = "project-title";
-    header.innerHTML = title;
-
-    const font = addElement("font", panel);
-    font.className = "project-font";
-    font.setAttribute("t", translationKey);
-  };
+  const containerFlexWeb = addElement("div", container);
+  containerFlexWeb.className = "container-flex";
+  containerFlexWeb.style.flexDirection = "row";
+  containerFlexWeb.style.flexWrap = "wrap";
 
   addProject(
+    containerFlexWeb,
+    "project-react-market",
+    "./assets/projects/react-market/",
+    "React Market",
+    "projects.react-market",
+    "react-market"
+  );
+
+  const projectsGarrys = addElement("font", container);
+  projectsGarrys.className = "font-header";
+  projectsGarrys.setAttribute("t", "Garry's Mod");
+  projectsGarrys.style.textAlign = "center";
+
+  const containerFlexGarrys = addElement("div", container);
+  containerFlexGarrys.className = "container-flex";
+  containerFlexGarrys.style.flexDirection = "row";
+  containerFlexGarrys.style.flexWrap = "wrap";
+
+  addProject(
+    containerFlexGarrys,
     "project-stalker",
-    "./assets/projects/stalker/stalker.svg",
+    "./assets/projects/stalker/",
     "S.T.A.L.K.E.R.",
     "projects.stalker",
     "stalker"
   );
 
   addProject(
+    containerFlexGarrys,
     "project-fallout",
-    "./assets/projects/fallout/fallout.svg",
+    "./assets/projects/fallout/",
     "Fallout",
     "projects.fallout",
     "fallout"
   );
 
   addProject(
+    containerFlexGarrys,
     "project-modernwarfare",
-    "./assets/projects/mw/mw.svg",
+    "./assets/projects/mw/",
     "COD: Modern Warfare",
     "projects.mw",
     "mw"
   );
 
   addProject(
+    containerFlexGarrys,
     "project-daynight",
-    "./assets/projects/daynight/daynight.svg",
+    "./assets/projects/daynight/",
     "Day & Night Trader",
     "projects.daynight",
     "daynight"
@@ -201,3 +224,4 @@ pages.set("stalker", Stalker);
 pages.set("fallout", Fallout);
 pages.set("mw", MW);
 pages.set("daynight", Daynight);
+pages.set("react-market", ReactMarket);

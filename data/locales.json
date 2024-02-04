@@ -16,7 +16,8 @@
 			"stalker": "A few Garry's Mod plugins are designed like the \"S.T.A.L.K.E.R.\" game trilogy.",
 			"fallout": "A few Garry's Mod plugins are designed like the \"Fallout\" game series.",
 			"mw": "Garry's Mod plugin is designed like the \"Call of Duty: Modern Warfare\" game.",
-			"daynight": "A Garry's Mod plugin adds a special trader and some light entities."
+			"daynight": "A Garry's Mod plugin adds a special trader and some light entities.",
+			"react-market": "A sample website of an online market was created with ReactJS."
 		},
 		"stalker": {
 			"ranks": "Time (Helix | NutScript).<br> Rank and faction relationship system.",
@@ -37,6 +38,10 @@
 		},
 		"daynight": {
 			"text": "Based on <a href='https://steamcommunity.com/sharedfiles/filedetails/?id=1614964558' target='_blank' class='font-link'>Addon</a>.<br> Light entities that turn on only at night and turn off when the day comes.<br> Vendor that appears only at night at random places. disappears when the day comes."
+		},
+		"react-market": {
+			"link": "Ссылка: <a href='https://legerakun.github.io/react-market/' target='_blank' class='font-link'>legerakun.github.io/react-market/</a>",
+			"text" : "Пример сайта онлайн магазина. Был создан с помощью React, TypeScript, i18next, react-router-dom, framer-motion, vite, Github Actions и Github Pages."
 		}
 	},
 	"ru": {
@@ -56,7 +61,8 @@
 			"stalker": "Несколько плагинов для Garry's Mod разработанных в стиле трилогии \"S.T.A.L.K.E.R.\".",
 			"fallout": "Несколько плагинов для Garry's Mod разработанных в стиле серии игр \"Fallout\".",
 			"mw": "Плагин для Garry's Mod разработанный в стиле игры \"Call of Duty: Modern Warfare\".",
-			"daynight": "Плагин для Garry's Mod добавляющий специального торговца и несколько новых источников света."
+			"daynight": "Плагин для Garry's Mod добавляющий специального торговца и несколько новых источников света.",
+			"react-market": "Пример сайта онлайн магазина. Был создан с помощью ReactJS."
 		},
 		"stalker": {
 			"ranks": "Время (Helix | NutScript).<br> Система ранга и отношения к фракции.",
@@ -77,6 +83,10 @@
 		},
 		"daynight": {
 			"text": "Основан на <a href='https://steamcommunity.com/sharedfiles/filedetails/?id=1614964558' target='_blank' class='font-link'>аддоне</a>.<br> Источники света, которые включаются только ночью, и выключаются с наступлением дня.<br> Торговец, который появляется только ночью в случайных местах, и исчезает с наступлением дня."
+		},
+		"react-market": {
+			"link": "Link: <a href='https://legerakun.github.io/react-market/' target='_blank' class='font-link'>legerakun.github.io/react-market/</a>",
+			"text": "This is a sample website of online market. Built using React, TypeScript, i18next, react-router-dom, framer-motion, vite, Github Actions and Github Pages."
 		}
 	}
 }
