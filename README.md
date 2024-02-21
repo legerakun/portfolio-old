@@ -1,6 +1,6 @@
-# Portfolio
+# Portfolio Old
 
-![landing](https://raw.githubusercontent.com/legerakun/portfolio/master/assets/readme.png)
+![landing](https://raw.githubusercontent.com/legerakun/portfolio-old/master/assets/readme.png)
 
 ## Info
 
@@ -8,29 +8,27 @@ This website was created for publishing my different projects and was built usin
 
 ## Installation
 
-To run this project locally, you need a [vite](https://vitejs.dev/).
-
-When the *vite* is installed, follow these steps:
+To run this project locally, you need to follow these steps.
 
 1. Clone the repository using the following command:
    
 ```
-git clone https://github.com/legerakun/portfolio
+git clone https://github.com/legerakun/portfolio-old
 ```
 
 2. Navigate to the project directory:
 
 ```
-cd portfolio
+cd portfolio-old
 ```
 
-3. Setup *vite*
+3. Setup dependencies
 
 ```
 npm install
 ```
 
-4. Start local *vite* server
+4. Start local server
 
 ```
 npm run dev
