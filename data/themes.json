@@ -1,0 +1,18 @@
+{
+	"on": {
+		"main-color": "rgb(50, 120, 200)", 
+		"font-color": "rgb(0, 0, 0)", 
+		"bg-color": "rgb(255, 255, 255)", 
+		"navbar-color": "rgba(255, 255, 255, 0.9)",
+		"main-filter": "invert(45%) sepia(15%) saturate(2672%) hue-rotate(172deg) brightness(90%) contrast(88%)",
+		"shadow-color": "rgb(100, 100, 100)"
+	},
+	"off": {
+		"main-color": "rgb(50, 120, 200)", 
+		"font-color": "rgb(210, 210, 210)", 
+		"bg-color": "rgb(20, 20, 20)", 
+		"navbar-color": "rgba(20, 20, 20, 0.9)",
+		"main-filter": "invert(45%) sepia(15%) saturate(2672%) hue-rotate(172deg) brightness(90%) contrast(88%)",
+		"shadow-color": "rgb(100, 100, 100)"
+	}
+}
