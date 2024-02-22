@@ -4,5 +4,5 @@ export default defineConfig({
   build: {
     target: "esnext"
   },
-  base: "https://legerakun.github.io/portfolio/",
+  base: "https://legerakun.github.io/portfolio-old/",
 });
